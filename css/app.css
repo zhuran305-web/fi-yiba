@@ -1,0 +1,1168 @@
+/* ============================================================
+   Fi一把 · 组件与视图
+   动效清单（全部挂在真实交互/状态时刻，无整页过渡）：
+   1) 唱片旋转  —— 局内进行中 = 「这一轮正在播放」的状态本体
+   2) 频谱律动  —— 品牌心跳：hero 卡与结算页的能量条
+   3) 揭示波    —— 提交猜测后色块依次点亮（判定时刻的核心反馈）
+   4) 行入场    —— 新猜测行滑入（起点 opacity .6 / 240ms，可读性优先）
+   5) 胜利迸发  —— 答对瞬间的一次性光爆 + 音符粒子（街机得分感）
+   6) 按压反馈  —— 按钮 scale .97 + 光晕收紧
+   ============================================================ */
+
+/* ============ 页面骨架 ============ */
+
+.page {
+  position: relative;
+  z-index: 1;
+  width: min(var(--w-page), 100%);
+  margin: 0 auto;
+  padding: 0 18px calc(28px + env(safe-area-inset-bottom, 0px));
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============ 触摸涟漪：按下即起的环形光波 ============
+   性能方案（真机两轮崩溃后）：元素池复用 + 无 blur / 无 box-shadow / 无混合模式
+   · 3 个元素常驻，只在 .ripple--on 时跑动画，其余时间 opacity:0 完全静止 */
+
+.ripple-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 85;
+  pointer-events: none;
+  overflow: hidden;
+  contain: strict;
+  /* 不用 mix-blend-mode：全屏混合强制离屏合成 */
+}
+
+.ripple {
+  position: absolute;
+  opacity: 0;
+  contain: layout style paint;
+  will-change: opacity;
+}
+
+/* 只有激活态才跑动画 —— 池里闲置的元素零开销 */
+.ripple--on {
+  animation: ripple-hold 2100ms linear forwards;
+}
+
+@keyframes ripple-hold {
+  0%, 92% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* 光盘：柔和径向渐变晕 */
+.ripple__disc {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(var(--rc), .2) 0%,
+    rgba(var(--rc), .12) 30%,
+    rgba(var(--rc), .05) 50%,
+    transparent 68%);
+}
+
+/* 一道光环 */
+.ripple__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(var(--rc), .4);
+}
+
+.ripple--on .ripple__disc {
+  animation: ripple-expand 1200ms cubic-bezier(.33, .65, .45, 1) forwards,
+             ripple-fade 2000ms linear forwards;
+}
+
+.ripple--on .ripple__ring {
+  animation: ripple-expand 1400ms cubic-bezier(.33, .65, .45, 1) forwards,
+             ripple-fade 1950ms linear forwards;
+}
+
+@keyframes ripple-expand {
+  from { transform: scale(.02); }
+  to { transform: scale(1); }
+}
+
+@keyframes ripple-fade {
+  0% { opacity: .9; }
+  25% { opacity: .8; }
+  50% { opacity: .62; }
+  70% { opacity: .44; }
+  86% { opacity: .24; }
+  100% { opacity: 0; }
+}
+
+/* ============ 顶栏 ============ */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(16px + env(safe-area-inset-top, 0px)) 0 14px;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  cursor: default;
+  user-select: none;
+}
+
+.brand__fi {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -.03em;
+}
+
+.brand__yiba { font-size: 19px; font-weight: 700; color: var(--ink-hi); margin-left: 4px; }
+
+.streak-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border-radius: var(--r-pill);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  font-size: 13px;
+  font-weight: 700;
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+.streak-chip__flame { font-size: 14px; filter: drop-shadow(0 0 6px rgba(251, 191, 36, .55)); }
+
+/* 连胜变化：数字跳动的一瞬 */
+.streak-chip.bump { animation: chip-bump 420ms var(--ease-spring); }
+
+@keyframes chip-bump { 40% { transform: scale(1.14); box-shadow: 0 0 18px rgba(251, 191, 36, .4); } }
+
+/* —— 光效档位选择器（放在页面底部，避开原生导航栏的官方按钮） —— */
+
+/* 光效档 + 设置按钮同行：包裹层负责与上文的间距 */
+.fx-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.fx-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--glass-border);
+}
+
+.fx-row__label {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink-low);
+  letter-spacing: .08em;
+  padding: 0 6px 0 9px;
+}
+
+.fx-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--ink-low);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: background var(--t-fast) var(--ease-out), color var(--t-fast), box-shadow var(--t-fast);
+}
+
+.fx-btn:active { transform: scale(.94); }
+
+/* 选中档：品牌色填充，明确当前状态 */
+.fx-btn--on {
+  background: var(--grad-brand);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(124, 92, 255, .4);
+}
+
+/* 窄屏：省掉"光效"二字标签，把空间让给按钮 */
+@media (max-width: 400px) {
+  .fx-row__label { display: none; }
+  .fx-btn { padding: 5px 14px; }
+}
+
+
+/* ============ 光效四档（html[data-fx]） ============
+   high = 完整效果（极光 blur 72px、光带齐全、全部动画）
+   mid  = 去 filter:blur（改渐变柔边）、隐藏光带、涟漪池化
+   low  = 再削一层（极光静止、渐变更淡、去星尘/唱片光环/扫光）
+   off  = 零光效（极光与涟漪层隐藏、动画全停、仅静态深色底）
+   规则定义在 theme.css（背景层）与本文件（组件层）。
+   任何档位都保留：按压缩放、浮层开合、判定揭示波（只在操作瞬间跑）。 */
+
+html[data-fx="off"] .hero__cta { margin-top: 14px; }
+
+/* ============ 玻璃卡基元 ============ */
+
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r-lg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--shadow-card);
+}
+
+/* ============ 主页：每日挑战 hero ============ */
+
+.hero {
+  position: relative;
+  padding: 22px;
+  overflow: hidden;
+}
+
+/* hero 内嵌极光轴：卡片自带一道缓慢扫过的流光（分隔玻璃与内容） */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(115deg,
+    transparent 10%,
+    rgba(139, 92, 246, .2) 28%,
+    rgba(34, 211, 238, .22) 46%,
+    rgba(244, 114, 182, .2) 64%,
+    transparent 86%);
+  background-size: 220% 100%;
+  animation: hero-sheen 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes hero-sheen {
+  from { background-position: 0% 0; }
+  to   { background-position: 100% 0; }
+}
+
+.hero__inner { position: relative; display: flex; gap: 18px; align-items: center; }
+
+/* —— 唱片：音乐身份的视觉锚点 —— */
+.vinyl {
+  position: relative;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  flex: none;
+  background:
+    radial-gradient(circle, #0d0d16 0 26%, transparent 26.5%),
+    repeating-radial-gradient(circle, #161622 0 2.2px, #101018 2.2px 4.6px),
+    radial-gradient(circle at 34% 30%, #23233a, #0c0c15 74%);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, .09),
+    0 14px 34px rgba(0, 0, 0, .55),
+    inset 0 0 30px rgba(0, 0, 0, .6);
+  transition: box-shadow 600ms var(--ease-out);
+}
+
+.vinyl__label {
+  position: absolute;
+  inset: 27%;
+  border-radius: 50%;
+  background: var(--grad-brand);
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 17px;
+  color: rgba(255, 255, 255, .96);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .28), 0 2px 14px rgba(124, 92, 255, .65);
+}
+
+/* 唱片外呼吸光环：像正在转动的唱机投出的环境光 */
+.vinyl::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  z-index: -1;
+  background: radial-gradient(circle, rgba(124, 92, 255, .42) 30%, rgba(34, 211, 238, .18) 56%, transparent 72%);
+  filter: blur(14px);
+  animation: vinyl-aura 4.6s ease-in-out infinite;
+}
+
+@keyframes vinyl-aura {
+  0%, 100% { opacity: .5; transform: scale(.96); }
+  50% { opacity: .9; transform: scale(1.05); }
+}
+
+.vinyl__hole {
+  position: absolute;
+  inset: calc(50% - 3.5px);
+  border-radius: 50%;
+  background: #07070f;
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, .22);
+}
+
+.vinyl__gloss {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(128deg, rgba(255, 255, 255, .16) 4%, transparent 26%, transparent 74%, rgba(255, 255, 255, .07) 96%);
+  pointer-events: none;
+}
+
+/* 唱片永恒高光：光线缓慢扫过纹路（黑胶在灯下的错觉），恒速无起停跳变 */
+.vinyl__gloss { animation: gloss-turn 9s linear infinite; }
+
+@keyframes gloss-turn { to { transform: rotate(360deg); } }
+
+.hero__meta { flex: 1; min-width: 0; }
+
+.hero__eyebrow { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+
+.badge {
+  padding: 3.5px 9px;
+  border-radius: var(--r-pill);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  background: var(--grad-brand-soft);
+  border: 1px solid var(--glass-border-hi);
+  color: var(--ink-hi);
+}
+
+.hero__title { font-size: 22px; font-weight: 800; letter-spacing: -.01em; margin: 0 0 6px; }
+
+.hero__sub { font-size: 13px; color: var(--ink-mid); }
+
+/* —— 进度点：8 次机会 —— */
+
+.dots { display: flex; gap: 6px; margin-top: 13px; }
+
+.dots__dot {
+  flex: 1 1 0;
+  min-width: 4px;
+  max-width: 22px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--ink-faint);
+  transition: background var(--t-fast), box-shadow var(--t-fast);
+}
+
+/* 20 次机会：细刻度进度条式排布 */
+.dots--many { gap: 3px; }
+.dots--many .dots__dot { height: 5px; border-radius: 2.5px; }
+
+.dots__dot--used { background: rgba(255, 255, 255, .3); }
+.dots__dot--now {
+  background: var(--grad-brand);
+  box-shadow: 0 0 10px rgba(124, 92, 255, .75);
+  animation: dot-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes dot-pulse { 50% { opacity: .55; } }
+
+.countdown { margin-top: 12px; font-size: 12px; color: var(--ink-low); }
+
+/* ============ 频谱条（品牌心跳，出现在 hero 与结算） ============ */
+
+.eq { display: flex; gap: 3px; align-items: flex-end; height: 16px; }
+
+.eq__bar {
+  width: 3px;
+  border-radius: 2px;
+  background: var(--grad-brand);
+  height: 30%;
+  opacity: .9;
+}
+
+.eq--live .eq__bar { animation: eq-jump 1.1s ease-in-out infinite; }
+.eq__bar:nth-child(2) { animation-delay: .12s; }
+.eq__bar:nth-child(3) { animation-delay: .24s; }
+.eq__bar:nth-child(4) { animation-delay: .36s; }
+.eq__bar:nth-child(5) { animation-delay: .48s; }
+
+@keyframes eq-jump { 0%, 100% { height: 26%; } 50% { height: 96%; } }
+
+/* ============ 主页：模式卡 ============ */
+
+.modes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+
+.mode-card {
+  position: relative;
+  padding: 16px;
+  border-radius: var(--r-md);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  font-family: inherit;
+  transition: transform var(--t-fast) var(--ease-out), border-color var(--t-fast), background var(--t-fast);
+}
+
+.mode-card:active {
+  transform: scale(.975);
+  border-color: rgba(139, 92, 246, .55);
+  box-shadow: 0 0 0 1px rgba(139, 92, 246, .25), 0 10px 32px rgba(124, 92, 255, .28);
+}
+
+/* 标准模式：经典玩法主推卡（品牌色） */
+.mode-card--core {
+  background:
+    linear-gradient(126deg, rgba(139, 92, 246, .22), rgba(34, 211, 238, .13) 58%, rgba(139, 92, 246, .1)),
+    var(--glass-bg);
+  border-color: rgba(139, 92, 246, .42);
+  box-shadow: 0 8px 26px rgba(124, 92, 255, .16);
+}
+
+/* 猜歌手：新玩法卡（极光色） */
+.mode-card--feature {
+  background:
+    linear-gradient(126deg, rgba(124, 92, 255, .16), rgba(34, 211, 238, .1) 52%, rgba(244, 114, 182, .14)),
+    var(--glass-bg);
+  border-color: rgba(139, 92, 246, .35);
+}
+
+.mode-card__icon { font-size: 22px; margin-bottom: 9px; }
+
+.mode-card__name { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+
+.mode-card__desc { font-size: 11.5px; color: var(--ink-mid); line-height: 1.45; }
+
+/* 无限练习：横贯双列的低调长卡——低于四张主卡的“练手”层，尽量少占纵向空间 */
+.mode-card--wide {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, .03);
+}
+
+.mode-card--wide .mode-card__icon { font-size: 19px; margin-bottom: 0; }
+
+.mode-card--wide .mode-card__name { font-size: 13.5px; margin-bottom: 1px; }
+
+.mode-card--wide .mode-card__desc { font-size: 11px; line-height: 1.4; }
+
+/* ============ 按钮 ============ */
+
+.btn {
+  appearance: none;
+  border: none;
+  border-radius: var(--r-pill);
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--t-fast) var(--ease-spring), box-shadow var(--t-fast), filter var(--t-fast), opacity var(--t-fast);
+}
+
+.btn:active { transform: scale(.965); }
+
+.btn--primary {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  color: #fff;
+  background: var(--grad-brand);
+  background-size: 210% 100%;
+  box-shadow: var(--shadow-glow-brand);
+  animation: btn-sheen 7.5s ease-in-out infinite;
+}
+
+/* 主按钮表面缓慢流动的流光带 */
+@keyframes btn-sheen {
+  0%, 100% { background-position: 0% 0; }
+  50% { background-position: 100% 0; }
+}
+
+.btn--primary:hover { filter: brightness(1.08); }
+
+.btn--primary:disabled { opacity: .45; box-shadow: none; cursor: not-allowed; animation: none; }
+
+.btn--ghost {
+  padding: 11px 18px;
+  font-size: 13.5px;
+  color: var(--ink-mid);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+}
+
+.btn--ghost:hover { color: var(--ink-hi); }
+
+.hero__cta { margin-top: 18px; }
+
+/* ============ 局内视图 ============ */
+
+/* 视图切换：退场瞬时、入场优雅上浮（起点 .55 内容即刻可读，不触发白闪/断裂） */
+.view { display: none; }
+.view--active { display: block; animation: view-in 280ms var(--ease-out); }
+
+@keyframes view-in { from { opacity: .55; transform: translateY(7px); } }
+
+.round-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0 14px;
+}
+
+.round-top__back {
+  width: 38px;
+  height: 38px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--ink-hi);
+  font-size: 17px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform var(--t-fast) var(--ease-out);
+}
+
+.round-top__back:active { transform: scale(.92); }
+
+.round-top__mode { font-size: 14px; font-weight: 700; }
+
+.round-top__eq { margin-left: auto; }
+
+/* —— 猜测输入区 —— */
+
+.guess-zone { padding: 18px; }
+
+.guess-field { position: relative; }
+
+.guess-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  font-size: 15.5px;
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--ink-hi);
+  background: rgba(0, 0, 0, .34);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r-md);
+  outline: none;
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+
+.guess-input::placeholder { color: var(--ink-low); font-weight: 500; }
+
+.guess-input:focus {
+  border-color: rgba(139, 92, 246, .65);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, .18), var(--shadow-glow-brand);
+}
+
+/* 自动补全：玻璃浮层（开合双向过渡：淡入上滑 / 淡出下滑） */
+.ac {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 30;
+  max-height: 268px;
+  overflow-y: auto;
+  padding: 6px;
+  border-radius: var(--r-md);
+  background: rgba(16, 16, 30, .92);
+  border: 1px solid var(--glass-border-hi);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, .6);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  opacity: 0;
+  transform: translateY(-5px);
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 180ms var(--ease-out), transform 180ms var(--ease-out), visibility 0s linear .18s;
+}
+
+.ac--open {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 180ms var(--ease-out), transform 180ms var(--ease-out);
+}
+
+.ac__item {
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  transition: background var(--t-fast);
+}
+
+.ac__item:hover, .ac__item--hl { background: rgba(255, 255, 255, .09); }
+
+.ac__title { font-size: 14px; font-weight: 700; }
+
+.ac__artist { font-size: 12px; color: var(--ink-mid); flex: none; }
+
+.guess-actions { display: flex; gap: 10px; margin-top: 12px; }
+
+.guess-actions .btn--primary { flex: 1; padding: 13px; font-size: 15px; }
+
+/* —— 猜测历史（新行在上） —— */
+
+.history { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+
+.guess-row {
+  padding: 14px;
+  border-radius: var(--r-md);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  animation: row-in 240ms var(--ease-out);
+}
+
+@keyframes row-in { from { opacity: .6; transform: translateY(9px); } }
+
+.guess-row__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.guess-row__song { font-size: 15.5px; font-weight: 800; letter-spacing: -.01em; }
+
+.guess-row__no { font-size: 11px; font-weight: 700; color: var(--ink-low); flex: none; }
+
+.guess-row__song--answer { color: var(--hit-ink); }
+
+.chips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+
+/* 八项属性：每行四个，共两行 */
+.chips--4 { grid-template-columns: repeat(4, 1fr); gap: 5px; }
+.chips--4 .chip { padding: 8px 3px 7px; }
+.chips--4 .chip__val { font-size: 11px; gap: 2px; }
+.chips--4 .chip__label { font-size: 8.5px; }
+.chips--4 .chip__arrow { font-size: 10px; }
+.chips--4 .chip__sub { font-size: 9px; }
+
+/* 专辑名可能较长：更小字号 + 最多两行 */
+.chip--album .chip__val {
+  font-size: 10.5px;
+  line-height: 1.25;
+  max-height: 2.5em;
+  overflow: hidden;
+}
+
+.chip {
+  position: relative;
+  padding: 8px 4px 7px;
+  border-radius: 9px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+  border: 1px solid var(--miss-line);
+  background: var(--miss-bg);
+  color: var(--miss-ink);
+  opacity: 0;
+  transform: scale(.9);
+}
+
+/* 揭示波：JS 逐个加 .lit，色块从灰底「点亮」——判定时刻的核心反馈 */
+.chip.lit { opacity: 1; transform: scale(1); transition: opacity 200ms var(--ease-out), transform 260ms var(--ease-spring); }
+
+.chip__label { font-size: 9px; font-weight: 600; color: inherit; opacity: .72; letter-spacing: .05em; margin-bottom: 2px; }
+
+.chip__val { display: flex; align-items: center; justify-content: center; gap: 3px; flex-wrap: wrap; }
+
+.chip__arrow { font-size: 11px; font-weight: 900; }
+
+/* 歌手格：名字可能较长，略缩字号 + 性别小注 */
+.chip--name .chip__val { font-size: 11.5px; line-height: 1.25; }
+.chip__sub { font-size: 9.5px; font-weight: 700; opacity: .6; margin-left: 2px; }
+
+.chip--hit { background: var(--hit-bg); border-color: var(--hit-line); color: var(--hit-ink); box-shadow: 0 0 14px rgba(52, 211, 153, .22); }
+.chip--near { background: var(--near-bg); border-color: var(--near-line); color: var(--near-ink); box-shadow: 0 0 14px rgba(251, 191, 36, .16); }
+
+/* —— 放弃 —— */
+
+.giveup-wrap { display: flex; justify-content: center; padding: 18px 0 4px; animation: view-in 260ms var(--ease-out); }
+
+/* ============ 规则浮层 ============ */
+
+.sheet-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(4, 4, 12, .6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.sheet-mask--open { display: flex; animation: mask-in 220ms var(--ease-out); }
+
+/* —— 浮层关闭按钮（范围抽屉 / 结算卡右上角共用）：禁 blur / box-shadow（性能红线） —— */
+
+.mask-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, .07);
+  color: var(--ink-mid);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background var(--t-fast), color var(--t-fast), transform var(--t-fast) var(--ease-out);
+}
+
+.mask-close:active { transform: scale(.9); background: rgba(255, 255, 255, .14); color: var(--ink-hi); }
+
+.sheet {
+  position: relative;
+  width: min(var(--w-page), 100%);
+  padding: 22px 20px calc(22px + env(safe-area-inset-bottom, 0px));
+  border-radius: 24px 24px 0 0;
+  background: rgba(14, 14, 26, .96);
+  border: 1px solid var(--glass-border-hi);
+  animation: sheet-up 300ms var(--ease-out);
+  max-height: 88vh;
+  overflow-y: auto;
+}
+
+/* —— 自定义范围的筛选 chip：按组着色（淡彩底 + 彩字，选中变柔光填充） —— */
+
+.scope-group { margin-bottom: 14px; }
+
+.scope-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink-low);
+  letter-spacing: .05em;
+  margin-bottom: 7px;
+}
+
+.scope-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.scope-chip {
+  appearance: none;
+  border-radius: var(--r-pill);
+  padding: 6px 12px;
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid rgba(var(--tone), .2);
+  background: rgba(var(--tone), .07);
+  color: var(--ink-tone);
+  transition: transform var(--t-fast) var(--ease-out), background var(--t-fast), border-color var(--t-fast),
+    color var(--t-fast), box-shadow var(--t-fast);
+}
+
+.scope-chip:active { transform: scale(.95); }
+
+.scope-chip--on {
+  background: linear-gradient(140deg, rgba(var(--tone), .42), rgba(var(--tone), .24));
+  border-color: rgba(var(--tone), .72);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(var(--tone), .38), inset 0 0 12px rgba(var(--tone), .18);
+}
+
+/* 五组色调：年代=紫 / 地区=青 / 语言=翠 / 流派=粉 / 热度=琥珀 */
+.scope-chip[data-g="decades"] { --tone: 139, 92, 246; --ink-tone: #c9b8ff; }
+.scope-chip[data-g="regions"] { --tone: 34, 211, 238; --ink-tone: #a9f0fb; }
+.scope-chip[data-g="langs"] { --tone: 52, 211, 153; --ink-tone: #a6f0cd; }
+.scope-chip[data-g="genres"] { --tone: 244, 114, 182; --ink-tone: #fbc7e2; }
+.scope-chip[data-g="minHeat"] { --tone: 251, 191, 36; --ink-tone: #fbdfa0; }
+
+.scope-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 14px;
+  padding-top: 13px;
+  border-top: 1px solid var(--glass-border);
+  font-size: 13px;
+  color: var(--ink-mid);
+}
+
+.scope-summary .num { font-size: 19px; font-weight: 800; color: var(--ink-hi); }
+
+/* 范围抽屉底部：开始挑战 + 清空条件 双按钮行 */
+.scope-actions {
+  display: flex;
+  gap: 9px;
+  margin-top: 14px;
+}
+
+.scope-actions .btn--primary { flex: 1; }
+
+.scope-actions .btn--ghost { flex: none; padding: 0 18px; }
+
+/* —— 主页底部：设置齿轮（与光效档同行） —— */
+
+.set-btn {
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, .04);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  transition: transform var(--t-fast) var(--ease-out), border-color var(--t-fast);
+}
+
+.set-btn:active { transform: scale(.9); border-color: rgba(139, 92, 246, .5); }
+
+/* —— 设置浮层：版本 / 关注作者 —— */
+
+.set-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 2px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.set-row:last-child { border-bottom: none; }
+
+.set-label { font-size: 13.5px; color: var(--ink-mid); }
+
+/* 设置项说明小字（换行显示在标签下方，解释该项具体控制什么） */
+.set-label__hint {
+  display: block;
+  font-size: 10.5px;
+  color: var(--ink-low);
+  margin-top: 2px;
+  letter-spacing: 0;
+}
+
+/* 块状设置行（旋律选择这类需要多行内容的项） */
+.set-row--block { display: block; }
+
+/* —— 点击旋律选择 chip：紫罗兰调，选中变柔光填充 —— */
+.tune-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 9px;
+}
+
+.tune-chip {
+  appearance: none;
+  border-radius: var(--r-pill);
+  padding: 6px 12px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid rgba(139, 92, 246, .2);
+  background: rgba(139, 92, 246, .07);
+  color: #c9b8ff;
+  transition: transform var(--t-fast) var(--ease-out), background var(--t-fast), border-color var(--t-fast);
+}
+
+.tune-chip:active { transform: scale(.95); }
+
+.tune-chip--on {
+  background: linear-gradient(140deg, rgba(139, 92, 246, .42), rgba(139, 92, 246, .24));
+  border-color: rgba(139, 92, 246, .72);
+  color: #ffffff;
+}
+
+.set-value { font-size: 13.5px; font-weight: 700; color: var(--ink-hi); }
+
+.set-follow {
+  appearance: none;
+  border-radius: var(--r-pill);
+  padding: 6px 14px;
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid rgba(139, 92, 246, .5);
+  background: linear-gradient(140deg, rgba(139, 92, 246, .35), rgba(34, 211, 238, .2));
+  color: #fff;
+  transition: transform var(--t-fast) var(--ease-out), opacity var(--t-fast);
+}
+
+.set-follow:active { transform: scale(.96); }
+
+.set-follow:disabled { cursor: default; }
+
+.set-follow--done {
+  border-color: rgba(52, 211, 153, .45);
+  background: rgba(52, 211, 153, .12);
+  color: var(--hit-ink);
+}
+
+/* —— 免责声明（折叠）：默认收起，避免设置面板过长；展开后小字正文 —— */
+
+.set-terms {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--glass-border);
+}
+
+.set-terms__summary {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-low);
+  cursor: pointer;
+  list-style: none;
+  padding: 4px 0;
+}
+
+.set-terms__summary::-webkit-details-marker { display: none; }
+
+/* 自绘展开箭头：transform 只走合成器，符合性能红线 */
+.set-terms__summary::before {
+  content: "▸";
+  display: inline-block;
+  margin-right: 6px;
+  transition: transform var(--t-fast) var(--ease-out);
+}
+
+.set-terms[open] .set-terms__summary::before { transform: rotate(90deg); }
+
+.set-terms__body {
+  padding: 4px 0 2px;
+  animation: view-in 220ms var(--ease-out);
+}
+
+.set-terms__body p {
+  margin: 0 0 9px;
+  font-size: 11.5px;
+  line-height: 1.62;
+  color: var(--ink-mid);
+}
+
+.set-terms__body p:last-child { margin-bottom: 0; }
+
+.set-terms__body strong { color: var(--ink-hi); font-weight: 700; }
+
+@keyframes sheet-up { from { opacity: .6; transform: translateY(24px); } }
+
+.rule-line { display: flex; gap: 10px; align-items: center; margin: 9px 0; }
+
+.rule-chip { width: 64px; flex: none; text-align: center; padding: 7px 4px; border-radius: 8px; font-size: 11px; font-weight: 800; border: 1px solid var(--miss-line); background: var(--miss-bg); color: var(--miss-ink); }
+.rule-chip--hit { background: var(--hit-bg); border-color: var(--hit-line); color: var(--hit-ink); }
+.rule-chip--near { background: var(--near-bg); border-color: var(--near-line); color: var(--near-ink); }
+
+.rule-text { font-size: 13px; color: var(--ink-mid); line-height: 1.5; }
+
+/* ============ 结算浮层 ============ */
+
+.result-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(4, 4, 12, .68);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.result-mask--open { display: flex; animation: mask-in 220ms var(--ease-out); }
+
+/* 关闭过渡：蒙层淡出 + 卡片沉底（.mask-closing 由 JS 挂载，结束后移除 open） */
+.mask-closing { animation: mask-out 200ms var(--ease-out) forwards; pointer-events: none; }
+.mask-closing .result-card { animation: result-out 200ms var(--ease-out) forwards; }
+.mask-closing .sheet { animation: sheet-down 200ms var(--ease-out) forwards; }
+
+@keyframes mask-in { from { opacity: 0; } }
+@keyframes mask-out { to { opacity: 0; } }
+@keyframes result-out { to { opacity: 0; transform: translateY(10px) scale(.97); } }
+@keyframes sheet-down { to { opacity: 0; transform: translateY(24px); } }
+
+.result-card {
+  width: min(382px, calc(100% - 36px));
+  padding: 26px 22px;
+  border-radius: 26px;
+  background: rgba(15, 15, 28, .96);
+  border: 1px solid var(--glass-border-hi);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .7);
+  position: relative;
+  overflow: hidden;
+  animation: result-in 380ms var(--ease-spring);
+}
+
+@keyframes result-in { from { opacity: .6; transform: translateY(18px) scale(.97); } }
+
+/* 胜利光爆：一次性 radial 扫光（街机 SCORE 时刻） */
+.result-card--win::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: conic-gradient(from 0deg,
+    transparent 0 14%, rgba(139, 92, 246, .22) 20%, transparent 27%,
+    transparent 42%, rgba(34, 211, 238, .2) 50%, transparent 58%,
+    transparent 74%, rgba(244, 114, 182, .2) 82%, transparent 90%);
+  animation: win-burst 1.4s var(--ease-out) forwards;
+  pointer-events: none;
+}
+
+@keyframes win-burst { from { transform: rotate(0deg) scale(.6); opacity: 1; } to { transform: rotate(140deg) scale(1.1); opacity: 0; } }
+
+/* 胜利卡常驻微光：光爆散去后，缓慢旋转的极光残影仍在卡内流连 */
+.result-card--win::after {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background: conic-gradient(from 90deg,
+    transparent 0 18%, rgba(139, 92, 246, .16) 26%, transparent 34%,
+    transparent 52%, rgba(34, 211, 238, .13) 60%, transparent 68%,
+    transparent 84%, rgba(244, 114, 182, .13) 92%, transparent 100%);
+  animation: win-halo 14s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes win-halo { to { transform: rotate(360deg); } }
+
+.result-head { text-align: center; margin-bottom: 6px; }
+
+.result-head__state { font-size: 26px; font-weight: 900; letter-spacing: -.02em; margin: 0 0 4px; }
+
+.result-head__sub { font-size: 13px; color: var(--ink-mid); }
+
+/* 答案卡 */
+.answer-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border-radius: var(--r-md);
+  background: var(--grad-brand-soft);
+  border: 1px solid var(--glass-border-hi);
+  margin: 14px 0;
+}
+
+.answer-card__vinyl {
+  width: 56px;
+  height: 56px;
+  flex: none;
+  border-radius: 50%;
+  position: relative;
+  background:
+    radial-gradient(circle, #0d0d16 0 30%, transparent 30.5%),
+    repeating-radial-gradient(circle, #1a1a2a 0 2px, #101018 2px 4px);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .12);
+}
+
+.answer-card__vinyl::after {
+  content: "";
+  position: absolute;
+  inset: 34%;
+  border-radius: 50%;
+  background: var(--grad-brand);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .3);
+}
+
+.answer-card__title { font-size: 17px; font-weight: 800; }
+
+.answer-card__artist { font-size: 12.5px; color: var(--ink-mid); margin-top: 2px; }
+
+/* 战绩格（Wordle emoji 网格的富版；行随结算卡逐行浮现） */
+.share-grid { display: flex; flex-direction: column; gap: 5px; align-items: center; margin: 6px 0 4px; }
+
+.share-row { display: flex; gap: 5px; animation: share-in 260ms var(--ease-out) both; }
+
+@keyframes share-in { from { opacity: .55; transform: translateY(4px); } }
+
+.share-cell { width: 26px; height: 26px; border-radius: 6px; display: grid; place-items: center; font-size: 12px; color: rgba(255,255,255,.9); }
+.share-cell--hit { background: #2ea882; }
+.share-cell--near { background: #d1a02a; }
+.share-cell--miss { background: rgba(255, 255, 255, .1); }
+
+.result-stats { display: flex; justify-content: space-around; padding: 12px 6px 4px; }
+
+.result-stat { text-align: center; }
+
+.result-stat__num { font-size: 24px; font-weight: 900; }
+
+.result-stat__label { font-size: 11px; color: var(--ink-low); font-weight: 600; margin-top: 2px; }
+
+.result-actions { display: flex; flex-direction: column; gap: 9px; margin-top: 16px; }
+
+/* 音符粒子（胜利一次性，CSS transform） */
+.notes-burst { position: absolute; inset: 0; pointer-events: none; }
+
+.note-p {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  font-size: 17px;
+  opacity: 0;
+}
+
+.result-card--win .note-p { animation: note-fly 1.15s var(--ease-out) forwards; }
+.note-p:nth-child(1) { --dx: -108px; --dy: -130px; animation-delay: .05s; }
+.note-p:nth-child(2) { --dx: 92px;  --dy: -118px; animation-delay: .1s; }
+.note-p:nth-child(3) { --dx: -58px; --dy: -158px; animation-delay: .16s; }
+.note-p:nth-child(4) { --dx: 128px; --dy: -70px;  animation-delay: .13s; }
+.note-p:nth-child(5) { --dx: -132px;--dy: -56px;  animation-delay: .2s; }
+.note-p:nth-child(6) { --dx: 52px;  --dy: -160px; animation-delay: .24s; }
+
+@keyframes note-fly {
+  0% { opacity: 0; transform: translate(0, 0) rotate(-8deg) scale(.7); }
+  18% { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(14deg) scale(1.15); }
+}
+
+/* ============ 页脚 ============ */
+
+.foot { margin-top: auto; padding-top: 26px; text-align: center; }
+
+.foot__eq { display: inline-flex; margin-bottom: 10px; }
+
+.foot__hint { font-size: 11px; color: var(--ink-faint); letter-spacing: .06em; }
+/* ============ toast ============ */
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 48px;
+  transform: translateX(-50%) translateY(20px);
+  z-index: 90;
+  padding: 11px 20px;
+  border-radius: var(--r-pill);
+  background: rgba(20, 20, 36, .95);
+  border: 1px solid var(--glass-border-hi);
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--t-base), transform var(--t-base) var(--ease-out);
+}
+
+.toast--show { opacity: 1; transform: translateX(-50%) translateY(0); }

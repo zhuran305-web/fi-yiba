@@ -1,0 +1,23 @@
+# 依赖与构建产物
+node_modules/
+dist/
+
+# 音频片段：来自 iTunes 试听接口，属授权范围外的再分发，不纳入版本库
+public/audio/
+
+# 抓取缓存与中间产物
+tools/out/audio-preview-cache/
+tools/out/bank-dump.json
+tools/out/*.log
+
+# 本地运行痕迹
+dev-server.log
+.mimosa/
+assets/.mimosa/
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

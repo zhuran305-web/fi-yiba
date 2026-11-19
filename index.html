@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#07070f" />
+  <title>Fi一把 · 属性猜歌</title>
+  <link rel="stylesheet" href="/css/theme.css" />
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <!-- 环境层：极光（品牌身份，常驻） -->
+  <div class="aurora" aria-hidden="true">
+    <div class="aurora__blob aurora__blob--violet"></div>
+    <div class="aurora__blob aurora__blob--cyan"></div>
+    <div class="aurora__blob aurora__blob--magenta"></div>
+    <div class="aurora__blob aurora__blob--indigo"></div>
+    <div class="aurora__beam"></div>
+    <div class="aurora__beam aurora__beam--2"></div>
+    <div class="aurora__dust"></div>
+  </div>
+
+  <!-- 触摸涟漪层：手指按下处光波扩散（pointer-events 穿透） -->
+  <div class="ripple-layer" id="rippleLayer" aria-hidden="true"></div>
+
+  <main class="page">
+    <!-- 顶栏 -->
+    <header class="topbar">
+      <div class="brand"><span class="brand__fi grad-text">Fi</span><span class="brand__yiba">一把</span></div>
+      <div class="streak-chip" id="streakChip"><span class="streak-chip__flame">🔥</span><span class="num" id="streakNum">0</span></div>
+    </header>
+
+    <!-- 主页 -->
+    <section class="view view--active" id="viewHome">
+      <div class="hero glass" id="heroCard">
+        <div class="hero__inner">
+          <div class="vinyl" id="heroVinyl">
+            <div class="vinyl__label">Fi</div>
+            <div class="vinyl__hole"></div>
+            <div class="vinyl__gloss"></div>
+          </div>
+          <div class="hero__meta">
+            <div class="hero__eyebrow">
+              <span class="badge" id="heroEpisode">第 — 期</span>
+              <div class="eq" id="heroEq"><i class="eq__bar"></i><i class="eq__bar"></i><i class="eq__bar"></i><i class="eq__bar"></i><i class="eq__bar"></i></div>
+            </div>
+            <h1 class="hero__title">每日挑战</h1>
+            <div class="hero__sub" id="heroStatus">—</div>
+            <div class="dots" id="heroDots"></div>
+            <div class="countdown num" id="heroCountdown"></div>
+          </div>
+        </div>
+        <div class="hero__cta"><button class="btn btn--primary" id="heroCta">开始挑战</button></div>
+      </div>
+
+      <div class="modes">
+        <button class="mode-card mode-card--core" id="modeStandard">
+          <div class="mode-card__icon">🎵</div>
+          <div class="mode-card__name">标准模式</div>
+          <div class="mode-card__desc">20 次机会猜歌，标准池随机出题，连胜与平均步数记在本模式</div>
+        </button>
+        <button class="mode-card mode-card--feature" id="modeArtist">
+          <div class="mode-card__icon">🎤</div>
+          <div class="mode-card__name">猜歌手</div>
+          <div class="mode-card__desc">按 性别 / 地区 / 流派 / 年代 / 曲量，锁定是哪位歌手</div>
+        </button>
+        <button class="mode-card" id="modeSimple">
+          <div class="mode-card__icon">🌤️</div>
+          <div class="mode-card__name">简单模式</div>
+          <div class="mode-card__desc">1996 年后的国民级歌曲，都是耳熟能详的</div>
+        </button>
+        <button class="mode-card" id="modeCustom">
+          <div class="mode-card__icon">🎛️</div>
+          <div class="mode-card__name">自定义范围</div>
+          <div class="mode-card__desc">先选定年代 / 地区 / 语言 / 流派，在范围内出题</div>
+        </button>
+        <button class="mode-card mode-card--wide" id="modeFree">
+          <div class="mode-card__icon">♾️</div>
+          <div>
+            <div class="mode-card__name">无限练习</div>
+            <div class="mode-card__desc">全曲库随机出题（含古典），练手不计连胜</div>
+          </div>
+        </button>
+      </div>
+
+      <div class="foot">
+        <div class="eq eq--live foot__eq" id="footEq"><i class="eq__bar"></i><i class="eq__bar"></i><i class="eq__bar"></i><i class="eq__bar"></i><i class="eq__bar"></i></div>
+        <div class="foot__hint">FI YIBA · 听歌人的每日一词</div>
+        <div class="fx-bar">
+          <div class="fx-row" id="fxRow" role="group" aria-label="光效档位">
+            <span class="fx-row__label">光效</span>
+            <button class="fx-btn" data-fx="high">高</button>
+            <button class="fx-btn" data-fx="mid">中</button>
+            <button class="fx-btn" data-fx="low">低</button>
+            <button class="fx-btn" data-fx="off">关</button>
+          </div>
+          <button class="set-btn" id="btnSettings" aria-label="设置">⚙️</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 局内 -->
+    <section class="view" id="viewRound">
+      <div class="round-top">
+        <button class="round-top__back" id="btnBack" aria-label="返回">←</button>
+        <div class="round-top__mode" id="roundMode">每日挑战</div>
+        <div class="eq eq--live round-top__eq"><i class="eq__bar"></i><i class="eq__bar"></i><i class="eq__bar"></i><i class="eq__bar"></i><i class="eq__bar"></i></div>
+      </div>
+
+      <div class="guess-zone glass">
+        <div class="guess-field">
+          <input class="guess-input" id="guessInput" type="text" autocomplete="off"
+                 placeholder="从曲库中选择一首歌…" enterkeyhint="search" />
+          <div class="ac" id="acList"></div>
+        </div>
+        <div class="guess-actions">
+          <button class="btn btn--primary" id="btnSubmit" disabled>猜一猜</button>
+          <button class="btn btn--ghost" id="btnHelp">规则</button>
+        </div>
+      </div>
+
+      <div class="history" id="history"></div>
+      <div class="giveup-wrap" id="giveupWrap" style="display:none">
+        <button class="btn btn--ghost" id="btnGiveup">放弃并揭晓答案</button>
+      </div>
+      <div class="giveup-wrap" id="resultReopenWrap" style="display:none">
+        <button class="btn btn--ghost" id="btnResultReopen">查看结算卡</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- 规则浮层 -->
+  <div class="sheet-mask" id="sheetMask">
+    <div class="sheet">
+      <h2 class="t-title" style="margin:0 0 12px">怎么玩</h2>
+      <div class="rule-line"><div class="rule-chip rule-chip--hit">绿</div><div class="rule-text">完全命中（性别 / 地区 / 语言 / 主流派 / 数值相同）</div></div>
+      <div class="rule-line"><div class="rule-chip rule-chip--near">黄</div><div class="rule-text">接近（同大区·华语或东亚 / 流派有交集 / 数值在邻档）</div></div>
+      <div class="rule-line"><div class="rule-chip">黑</div><div class="rule-text">未命中。带箭头的属性：↑ 答案更晚/更热/更多，↓ 更早/更冷/更少</div></div>
+      <div class="rule-line"><div class="rule-chip">猜歌</div><div class="rule-text">按 歌手 / 地区 / 语言 / 流派 / 年份 / 热度 / 专辑 / 字数 八项提示——歌手格：同名=绿、同性别=黄；流派按集合比：完全一致=绿、有交集=黄；年份·热度·字数差 1 内=黄；专辑同名=绿</div></div>
+      <div class="rule-line"><div class="rule-chip rule-chip--near">防混淆</div><div class="rule-text">出题保证八项指标在曲库中唯一——绝不会出现"猜了另一首却满绿"的情况</div></div>
+      <div class="rule-line"><div class="rule-chip">猜歌手</div><div class="rule-text">按 性别 / 地区 / 语言 / 流派 / 年代 / 曲量 提示；年代=其在曲库中最早作品的年份（±2 为黄），曲量=曲库收录曲目数</div></div>
+      <div class="rule-line"><div class="rule-chip">标准模式</div><div class="rule-text">20 次机会猜歌，可反复开局，题目从标准池（高传唱度曲）抽取，本模式连胜与平均步数单独记录</div></div>
+      <div class="rule-line"><div class="rule-chip">简单/自定义</div><div class="rule-text">简单模式=1996 年后的高传唱度国民级歌曲（热 5 全收录 + 热 4 的国语歌）；自定义范围=先选年代/地区/语言/流派/热度，答案只在该范围内出</div></div>
+      <div class="rule-line"><div class="rule-chip">20 次</div><div class="rule-text">每局 20 次机会；输入框只能从对应库（曲库 / 歌手库）中选择</div></div>
+      <div style="margin-top:14px"><button class="btn btn--primary" id="btnCloseSheet">明白了</button></div>
+    </div>
+  </div>
+
+  <!-- 自定义范围浮层 -->
+  <div class="sheet-mask" id="scopeMask">
+    <div class="sheet">
+      <button class="mask-close" id="btnCloseScope" aria-label="返回">✕</button>
+      <h2 class="t-title" style="margin:0 0 4px">自定义范围</h2>
+      <div class="t-sub" style="margin-bottom:14px">选定后，答案只从符合范围的曲目中出；不选 = 不限</div>
+      <div id="scopeGroups"></div>
+      <div class="scope-summary">
+        <span>范围内曲目</span>
+        <span class="num" id="scopeCount">—</span>
+      </div>
+      <div class="scope-actions">
+        <button class="btn btn--primary" id="scopeStart">开始挑战</button>
+        <button class="btn btn--ghost" id="scopeReset">清空条件</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 设置浮层 -->
+  <div class="sheet-mask" id="setMask">
+    <div class="sheet">
+      <button class="mask-close" id="btnCloseSet" aria-label="关闭">✕</button>
+      <h2 class="t-title" style="margin:0 0 4px">设置</h2>
+      <div class="t-sub" style="margin-bottom:14px">关于 Fi一把</div>
+      <div class="set-row">
+        <span class="set-label">版本</span>
+        <span class="set-value num" id="setVersion">—</span>
+      </div>
+      <div class="set-row">
+        <span class="set-label">作者</span>
+        <button class="set-follow" id="btnFollow">关注作者</button>
+      </div>
+      <div class="set-row">
+        <span class="set-label">猜中音效<span class="set-label__hint">揭晓后的 5 秒片段</span></span>
+        <button class="set-follow" id="btnSound">开启</button>
+      </div>
+      <div class="set-row">
+        <span class="set-label">点击音效<span class="set-label__hint">按键的轻提示音</span></span>
+        <button class="set-follow" id="btnTapSound">开启</button>
+      </div>
+      <!-- 点击旋律（1.0.6）：chip 单选，切换后立刻试听旋律头两个音；
+           旋律数据与持久化在 js/audio.js（TAP_TUNES / fi_tap_tune），全部公有领域作品、纯合成 -->
+      <div class="set-row set-row--block">
+        <span class="set-label">点击旋律<span class="set-label__hint">每次点击弹奏旋律的下一个音符</span></span>
+        <div class="tune-chips" id="tuneChips">
+          <button class="tune-chip" data-tune="furElise">致爱丽丝</button>
+          <button class="tune-chip" data-tune="ode">欢乐颂</button>
+          <button class="tune-chip" data-tune="twinkle">小星星</button>
+          <button class="tune-chip" data-tune="canon">卡农</button>
+          <button class="tune-chip" data-tune="fate">命运</button>
+          <button class="tune-chip" data-tune="scale">音阶</button>
+        </div>
+      </div>
+
+      <!-- 免责声明：音频相关表述须与实际实现一致（素材来源、用途、非商业） -->
+      <details class="set-terms" id="setTerms">
+        <summary class="set-terms__summary">免责声明</summary>
+        <div class="set-terms__body">
+          <p><strong>音频素材说明</strong>：本作在猜中歌曲或放弃揭晓答案后播放的短片段（约 5 秒），取自 Apple iTunes 公开试听接口，仅用于游戏内的辨识提示与氛围营造，<strong>不提供完整曲目、不支持下载、不含歌词</strong>。点击界面的提示音为本作实时合成，不含任何第三方素材。</p>
+          <p><strong>版权归属</strong>：所有音乐作品及录音制品的著作权归原权利人（唱片公司、词曲作者、表演者）所有。本作与 Apple Inc. 及任何唱片公司无隶属或授权关系。</p>
+          <p><strong>非商业用途</strong>：本作通过小黑盒工坊免费提供，不含任何付费、广告或内购，不以音乐内容获利。</p>
+          <p><strong>权利通知</strong>：如权利人认为本作使用方式超出合理范围，可通过作者主页联系，我们将在核实后立即移除相应片段。</p>
+          <p><strong>游戏数据</strong>：曲库的歌手、地区、流派、年份等八项属性为人工整理的元数据，仅供娱乐，可能存在偏差，不构成任何权威 music 资料。</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- 结算浮层 -->
+  <div class="result-mask" id="resultMask">
+    <div class="result-card" id="resultCard">
+      <button class="mask-close" id="btnCloseResult" aria-label="关闭">✕</button>
+      <div class="notes-burst" id="notesBurst" aria-hidden="true"></div>
+      <div class="result-head">
+        <h2 class="result-head__state" id="resultState">答对了！</h2>
+        <div class="result-head__sub" id="resultSub">—</div>
+      </div>
+      <div class="answer-card">
+        <div class="answer-card__vinyl"></div>
+        <div style="min-width:0">
+          <div class="answer-card__title" id="answerTitle">—</div>
+          <div class="answer-card__artist" id="answerArtist">—</div>
+        </div>
+      </div>
+      <div class="share-grid" id="shareGrid"></div>
+      <div class="result-stats">
+        <div class="result-stat"><div class="result-stat__num num" id="statTries">—</div><div class="result-stat__label">尝试次数</div></div>
+        <div class="result-stat"><div class="result-stat__num num" id="statStreak">—</div><div class="result-stat__label" id="statStreakLabel">当前连胜</div></div>
+        <div class="result-stat"><div class="result-stat__num num" id="statBank">—</div><div class="result-stat__label" id="statBankLabel">曲库曲量</div></div>
+      </div>
+      <div class="result-actions">
+        <button class="btn btn--primary" id="btnShare">复制战绩，挑战盒友</button>
+        <button class="btn btn--ghost" id="btnAgain">再来一局（标准模式）</button>
+        <button class="btn btn--ghost" id="btnHome">返回主页</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

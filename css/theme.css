@@ -1,0 +1,423 @@
+/* ============================================================
+   Fi一把 · 设计系统 —— 「午夜流光」
+   ------------------------------------------------------------
+   灵感坐标：
+   · Apple Music —— 暗色沉浸、大标题、玻璃材质、克制的弹簧动效
+   · PS5 / Sony  —— 深空底色上漂浮的环境辉光、锐利的焦点光
+   · Sega 街机   —— 得分瞬间的爆发感、饱满的霓虹渐变
+   原则（承接上一项目红线）：
+   · 动效只用 transform/opacity（GPU 合成），老 WebView 不用 linear()
+   · 整页切换=瞬时，不做整页过渡动画；动效只发生在真实交互时刻
+   · 内容不做「默认不可见」：入场动画起点 opacity ≥ .5 且 ≤ 300ms
+   · 全部视觉为 CSS/SVG 原生，不依赖外部图片/字体（工坊 CSP 兼容）
+   ============================================================ */
+
+:root {
+  /* —— 色板：午夜 + 极光 —— */
+  --bg-0: #07070f;            /* 最深底色 */
+  --bg-1: #0c0c1a;            /* 卡片下层 */
+  --ink-hi: rgba(255, 255, 255, .94);
+  --ink-mid: rgba(255, 255, 255, .62);
+  --ink-low: rgba(255, 255, 255, .38);
+  --ink-faint: rgba(255, 255, 255, .16);
+
+  /* 极光三原色（品牌） */
+  --au-violet: #7c5cff;
+  --au-cyan:   #22d3ee;
+  --au-magenta:#f472b6;
+  --au-amber:  #fbbf24;
+  --au-green:  #34d399;
+
+  /* 品牌渐变：流光主轴 */
+  --grad-brand: linear-gradient(135deg, #8b5cf6 0%, #22d3ee 48%, #f472b6 100%);
+  --grad-brand-soft: linear-gradient(135deg, rgba(139,92,246,.22), rgba(34,211,238,.18) 48%, rgba(244,114,182,.22));
+
+  /* —— 玻璃材质（Apple 材料 / PS5 面板） —— */
+  --glass-bg: rgba(255, 255, 255, .055);
+  --glass-bg-strong: rgba(255, 255, 255, .085);
+  --glass-border: rgba(255, 255, 255, .11);
+  --glass-border-hi: rgba(255, 255, 255, .22);
+  --glass-blur: 18px;
+
+  /* —— 判定色（Wordle 三态 + 音乐质感） —— */
+  --hit-bg: linear-gradient(160deg, rgba(52,211,153,.28), rgba(16,185,129,.14));
+  --hit-line: rgba(52, 211, 153, .55);
+  --hit-ink: #6ee7b7;
+  --near-bg: linear-gradient(160deg, rgba(251,191,36,.26), rgba(245,158,11,.12));
+  --near-line: rgba(251, 191, 36, .5);
+  --near-ink: #fcd34d;
+  --miss-bg: rgba(255, 255, 255, .045);
+  --miss-line: rgba(255, 255, 255, .09);
+  --miss-ink: rgba(255, 255, 255, .42);
+
+  /* —— 几何 —— */
+  --r-lg: 22px;
+  --r-md: 16px;
+  --r-sm: 11px;
+  --r-pill: 999px;
+  --w-page: 430px;
+
+  /* —— 动效 —— */
+  --ease-out: cubic-bezier(.22, 1, .36, 1);      /* Apple 弹出感 */
+  --ease-spring: cubic-bezier(.34, 1.45, .5, 1); /* 轻弹簧 */
+  --t-fast: 180ms;
+  --t-base: 260ms;
+
+  --shadow-card: 0 18px 50px rgba(0, 0, 0, .45);
+  --shadow-glow-brand: 0 6px 26px rgba(124, 92, 255, .35);
+
+  /* 字体：系统栈（工坊 CSP 不放行外部字体；各端回落到原生黑体） */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC",
+    "HarmonyOS Sans SC", "MiSans", "Source Han Sans CN", "Noto Sans SC",
+    "Microsoft YaHei", system-ui, sans-serif;
+}
+
+/* ============ 底层：午夜环境 + 极光漂移（品牌身份层） ============ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { height: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100%;
+  /* 基底不再纯黑：顶部靛紫天光向下沉入深空 */
+  background:
+    radial-gradient(130% 92% at 50% -12%, #12102a 0%, #0a0918 42%, #06050e 100%);
+  color: var(--ink-hi);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* 环境层：三团极光在深空中缓慢漂移。
+   身份层而非副作用：常驻全站、被卡片玻璃反复折射（backdrop-filter 取到它的光），
+   因此导航瞬时切换时极光连续不断——「流光溢彩」由此成立。
+   性能：只动 transform；blur 用 filter 预烘焙在静态层，不逐帧重算。 */
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+}
+
+.aurora::before {
+  /* 胶片颗粒：SVG 噪声平铺，让渐变有「贵」的质感（音乐海报工艺） */
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* 极光球：用多段色标的径向渐变做出柔边（不依赖 filter:blur）。
+   桌面端仍叠一层轻 blur 追求极致柔化；移动端在下面的媒体查询里去掉。 */
+.aurora__blob {
+  position: absolute;
+  width: 62vmax;
+  height: 62vmax;
+  border-radius: 50%;
+  filter: blur(72px);
+  will-change: transform;
+}
+
+.aurora__blob--violet {
+  top: -22vmax;
+  left: -14vmax;
+  background: radial-gradient(circle at 50% 50%,
+    rgba(124, 92, 255, .46) 0%,
+    rgba(124, 92, 255, .34) 26%,
+    rgba(124, 92, 255, .18) 45%,
+    rgba(124, 92, 255, .06) 58%,
+    transparent 68%);
+  animation: drift-a 46s ease-in-out infinite alternate;
+}
+
+.aurora__blob--cyan {
+  bottom: -26vmax;
+  right: -18vmax;
+  background: radial-gradient(circle at 50% 50%,
+    rgba(34, 211, 238, .32) 0%,
+    rgba(34, 211, 238, .22) 28%,
+    rgba(34, 211, 238, .11) 46%,
+    rgba(34, 211, 238, .04) 58%,
+    transparent 66%);
+  animation: drift-b 58s ease-in-out infinite alternate;
+}
+
+.aurora__blob--magenta {
+  top: 30%;
+  left: 30%;
+  width: 50vmax;
+  height: 50vmax;
+  background: radial-gradient(circle at 50% 50%,
+    rgba(244, 114, 182, .28) 0%,
+    rgba(244, 114, 182, .19) 28%,
+    rgba(244, 114, 182, .09) 46%,
+    transparent 64%);
+  animation: drift-c 38s ease-in-out infinite alternate;
+}
+
+/* 第四团：左下靛光，补足底部的层次 */
+.aurora__blob--indigo {
+  bottom: -18vmax;
+  left: -20vmax;
+  width: 52vmax;
+  height: 52vmax;
+  background: radial-gradient(circle at 50% 50%,
+    rgba(99, 102, 241, .28) 0%,
+    rgba(99, 102, 241, .19) 28%,
+    rgba(99, 102, 241, .08) 46%,
+    transparent 64%);
+  animation: drift-d 64s ease-in-out infinite alternate;
+}
+
+@keyframes drift-d { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(7vmax, -6vmax, 0) scale(1.14); } }
+
+/* 极光光带：两道斜向光帘缓慢漂移（「流光」的形体） */
+.aurora__beam {
+  position: absolute;
+  top: 6%;
+  left: -30%;
+  width: 170vw;
+  height: 26vh;
+  filter: blur(46px);
+  opacity: .55;
+  background: linear-gradient(92deg,
+    transparent 4%,
+    rgba(124, 92, 255, .16) 34%,
+    rgba(34, 211, 238, .12) 56%,
+    transparent 92%);
+  transform: rotate(-17deg);
+  will-change: transform;
+  animation: beam-drift 72s ease-in-out infinite alternate;
+}
+
+.aurora__beam--2 {
+  top: 46%;
+  left: auto;
+  right: -34%;
+  height: 22vh;
+  opacity: .45;
+  background: linear-gradient(92deg,
+    transparent 6%,
+    rgba(244, 114, 182, .12) 38%,
+    rgba(124, 92, 255, .12) 62%,
+    transparent 94%);
+  transform: rotate(13deg);
+  animation: beam-drift-2 88s ease-in-out infinite alternate;
+}
+
+@keyframes beam-drift   { from { transform: rotate(-17deg) translate3d(-4vw, 0, 0); }   to { transform: rotate(-14deg) translate3d(6vw, 3vh, 0); } }
+@keyframes beam-drift-2 { from { transform: rotate(13deg) translate3d(4vw, 0, 0); }    to { transform: rotate(16deg) translate3d(-6vw, -3vh, 0); } }
+
+/* 星尘：斜向分布的微光点，缓慢明灭（音乐海报式的空气感） */
+.aurora__dust {
+  position: absolute;
+  inset: 0;
+  opacity: .5;
+  background-image:
+    radial-gradient(1.5px 1.5px at 12% 18%, rgba(255, 255, 255, .5), transparent 100%),
+    radial-gradient(1.2px 1.2px at 78% 9%, rgba(190, 200, 255, .45), transparent 100%),
+    radial-gradient(1.8px 1.8px at 88% 32%, rgba(255, 255, 255, .35), transparent 100%),
+    radial-gradient(1.1px 1.1px at 24% 44%, rgba(170, 220, 255, .4), transparent 100%),
+    radial-gradient(1.6px 1.6px at 64% 56%, rgba(255, 230, 250, .32), transparent 100%),
+    radial-gradient(1.2px 1.2px at 8% 72%, rgba(255, 255, 255, .3), transparent 100%),
+    radial-gradient(1.7px 1.7px at 46% 84%, rgba(200, 210, 255, .3), transparent 100%),
+    radial-gradient(1.1px 1.1px at 92% 78%, rgba(255, 255, 255, .28), transparent 100%);
+  animation: dust-twinkle 7.5s ease-in-out infinite;
+}
+
+@keyframes dust-twinkle { 0%, 100% { opacity: .32; } 50% { opacity: .62; } }
+
+@keyframes drift-a { from { transform: translate3d(0, 0, 0) scale(1); }    to { transform: translate3d(9vmax, 6vmax, 0) scale(1.12); } }
+@keyframes drift-b { from { transform: translate3d(0, 0, 0) scale(1.06); } to { transform: translate3d(-8vmax, -5vmax, 0) scale(1); } }
+@keyframes drift-c { from { transform: translate3d(0, 0, 0) scale(1); }    to { transform: translate3d(-6vmax, 4vmax, 0) scale(1.15); } }
+/* 暗角：把视线压回中轴（PS5 舞台感） */
+.aurora::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 84% at 50% 0%, transparent 42%, rgba(3, 3, 9, .55) 100%);
+}
+
+/* ============ 排版与通用 ============ */
+
+::selection { background: rgba(124, 92, 255, .45); }
+
+.t-display {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1.15;
+}
+
+.t-title { font-size: 21px; font-weight: 700; letter-spacing: -.01em; }
+.t-body  { font-size: 15px; font-weight: 500; }
+.t-sub   { font-size: 13px; font-weight: 500; color: var(--ink-mid); }
+.t-micro { font-size: 11px; font-weight: 600; color: var(--ink-low); letter-spacing: .04em; }
+
+.num { font-variant-numeric: tabular-nums; letter-spacing: .02em; }
+
+/* 品牌流光字：渐变裁切（ Apple 艺术字工艺） */
+.grad-text {
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ============ 降级与可访问性 ============ */
+
+@supports not (backdrop-filter: blur(1px)) {
+  :root { --glass-bg: rgba(22, 22, 40, .82); --glass-bg-strong: rgba(26, 26, 46, .9); }
+}
+
+/* ============ 光效四档（html[data-fx]） ============
+   high = 0.0.3 的完整效果（极光 blur 72px、光带齐全、全部动画）
+   mid  = 0.0.4 的效果（去掉 filter:blur 改渐变柔边、隐藏光带、涟漪池化）
+   low  = 在 mid 基础上再削减（极光静止、渐变更淡、去星尘/唱片光环）
+   off  = 零光效（极光层与涟漪层隐藏、动画全停；仅静态深色底）
+   默认 high；小屏/低配首启自动判为 mid。 */
+
+/* ---- 小屏 / 触屏：把 high 自动降为 mid（用户手动选 high 则尊重） ---- */
+@media (max-width: 560px), (pointer: coarse) {
+  html:not([data-fx="high"]) .aurora__blob {
+    filter: none;
+    opacity: .8;
+  }
+  html:not([data-fx="high"]) .aurora__blob--violet  { animation-duration: 200s; }
+  html:not([data-fx="high"]) .aurora__blob--cyan    { animation-duration: 240s; }
+  html:not([data-fx="high"]) .aurora__blob--magenta { animation-duration: 180s; }
+  html:not([data-fx="high"]) .aurora__blob--indigo  { animation-duration: 260s; }
+
+  html:not([data-fx="high"]) .aurora__beam,
+  html:not([data-fx="high"]) .aurora__beam--2 { display: none; }
+
+  html:not([data-fx="high"]) .aurora__dust { animation: none; opacity: .45; }
+
+  html:not([data-fx="high"]) .vinyl::before { animation: none; opacity: .6; filter: none; }
+
+  html:not([data-fx="high"]) .hero::before { animation-duration: 26s; }
+  html:not([data-fx="high"]) .btn--primary { animation-duration: 22s; }
+  html:not([data-fx="high"]) .dots__dot--now { animation-duration: 2.4s; }
+
+  html:not([data-fx="high"]) { --glass-blur: 8px; }
+}
+
+/* ---- high：显式选择时给足完整效果（覆盖小屏降级） ---- */
+html[data-fx="high"] .aurora__blob { filter: blur(72px); }
+html[data-fx="high"] .aurora__beam,
+html[data-fx="high"] .aurora__beam--2 { display: block; }
+html[data-fx="high"] .aurora__dust { animation: dust-twinkle 7.5s ease-in-out infinite; opacity: .5; }
+html[data-fx="high"] .vinyl::before { animation: vinyl-aura 4.6s ease-in-out infinite; filter: blur(14px); }
+html[data-fx="high"] .hero::before { animation-duration: 8s; }
+html[data-fx="high"] .btn--primary { animation-duration: 7.5s; }
+html[data-fx="high"] .dots__dot--now { animation-duration: 1.6s; }
+html[data-fx="high"] { --glass-blur: 18px; }
+
+/* ---- mid：桌面端也应用"去 blur"这一层 ---- */
+html[data-fx="mid"] .aurora__beam,
+html[data-fx="mid"] .aurora__beam--2 { display: none; }
+
+html[data-fx="mid"] .aurora__blob { filter: none; }
+
+html[data-fx="mid"] .aurora__blob--violet  { animation-duration: 200s; }
+html[data-fx="mid"] .aurora__blob--cyan    { animation-duration: 240s; }
+html[data-fx="mid"] .aurora__blob--magenta { animation-duration: 180s; }
+html[data-fx="mid"] .aurora__blob--indigo  { animation-duration: 260s; }
+
+html[data-fx="mid"] .aurora__dust { animation: none; opacity: .45; }
+
+html[data-fx="mid"] .vinyl::before { animation: none; filter: none; opacity: .6; }
+
+html[data-fx="mid"] .hero::before { animation-duration: 26s; }
+html[data-fx="mid"] .btn--primary { animation-duration: 22s; }
+html[data-fx="mid"] { --glass-blur: 8px; }
+
+/* ---- low：再削一层（极光静止、星尘与唱片光晕移除、渐变调淡） ---- */
+html[data-fx="low"] .aurora__beam,
+html[data-fx="low"] .aurora__beam--2,
+html[data-fx="low"] .aurora__dust,
+html[data-fx="low"] .vinyl::before,
+html[data-fx="low"] .vinyl__gloss { display: none; }
+
+html[data-fx="low"] .aurora__blob {
+  filter: none;
+  opacity: .62;
+  animation: none;            /* 完全静止 */
+}
+
+html[data-fx="low"] .hero::before { display: none; }
+html[data-fx="low"] .btn--primary { animation: none; }
+html[data-fx="low"] .dots__dot--now { animation: none; }
+
+/* low 档的频谱条：动画停了，但不能让所有 bar 停在同一高度（那看起来像坏了）。
+   改为一组固定高低 —— 定格的音频波形，读起来是装饰图案而非停摆的动画。
+   高度按真实频谱的包络排布：小 - 大 - 中 - 小 - 大，视觉上有呼吸感。
+   覆盖所有频谱条（不限 eq--live，因为静态那组同样会停在平线）。 */
+html[data-fx="low"] .eq__bar { animation: none; }
+html[data-fx="low"] .eq__bar:nth-child(1) { height: 34%; }
+html[data-fx="low"] .eq__bar:nth-child(2) { height: 72%; }
+html[data-fx="low"] .eq__bar:nth-child(3) { height: 100%; }
+html[data-fx="low"] .eq__bar:nth-child(4) { height: 52%; }
+html[data-fx="low"] .eq__bar:nth-child(5) { height: 86%; }
+
+/* low 档的涟漪：去掉最外圈光环，只留柔和光盘晕
+   —— 光环是描边合成（最贵的一层），去掉后用更实的盘状光晕补偿"波"的边界感 */
+html[data-fx="low"] .ripple__ring { display: none; }
+
+html[data-fx="low"] .ripple__disc {
+  animation-duration: 1200ms, 2000ms;
+  background: radial-gradient(circle,
+    rgba(var(--rc), .3) 0%,
+    rgba(var(--rc), .16) 34%,
+    rgba(var(--rc), .07) 56%,
+    transparent 72%);
+}
+
+html[data-fx="low"] { --glass-blur: 6px; }
+
+/* ---- off：零光效 ---- */
+html[data-fx="off"] .aurora,
+html[data-fx="off"] .ripple-layer,
+html[data-fx="off"] .notes-burst,
+html[data-fx="off"] .eq,
+html[data-fx="off"] .vinyl__gloss { display: none; }
+
+html[data-fx="off"] .glass,
+html[data-fx="off"] .mode-card,
+html[data-fx="off"] .streak-chip,
+html[data-fx="off"] .guess-zone,
+html[data-fx="off"] .guess-row,
+html[data-fx="off"] .ac,
+html[data-fx="off"] .sheet,
+html[data-fx="off"] .result-card {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  background: rgba(20, 20, 36, .97);
+}
+
+html[data-fx="off"] .hero::before,
+html[data-fx="off"] .btn--primary,
+html[data-fx="off"] .result-card--win::after { animation: none !important; }
+
+html[data-fx="off"] .result-card--win::before { display: none; }
+
+html[data-fx="off"] .streak-chip__flame { filter: none; }
+
+/* 任何档位都保留：按压缩放、浮层开合、判定揭示波（只在操作瞬间跑） */
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora__blob { animation: none; }
+  .aurora__beam, .aurora__beam--2 { animation: none; }
+  .aurora__dust { animation: none; }
+  .vinyl::before { animation: none; }
+  .ripple-layer { display: none; }
+  * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

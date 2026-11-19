@@ -1,0 +1,3671 @@
+{
+  "ok": [
+    {
+      "id": "cl01",
+      "t": "G弦上的咏叹调",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl02",
+      "t": "托卡塔与赋格",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl03",
+      "t": "勃兰登堡协奏曲第三号",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl04",
+      "t": "耶稣，世人仰望的喜悦",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl05",
+      "t": "G大调前奏曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl06",
+      "t": "春",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl07",
+      "t": "夏",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl08",
+      "t": "秋",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl09",
+      "t": "冬",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl10",
+      "t": "卡农",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl11",
+      "t": "G大调弦乐小夜曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl12",
+      "t": "土耳其进行曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl13",
+      "t": "第四十号交响曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl14",
+      "t": "小星星变奏曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl15",
+      "t": "A大调单簧管协奏曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl16",
+      "t": "第二十一钢琴协奏曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl17",
+      "t": "命运交响曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl18",
+      "t": "欢乐颂",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl19",
+      "t": "致爱丽丝",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl20",
+      "t": "月光奏鸣曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl21",
+      "t": "悲怆奏鸣曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl22",
+      "t": "田园交响曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl23",
+      "t": "皇帝协奏曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl24",
+      "t": "惊愕交响曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl25",
+      "t": "小号协奏曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl26",
+      "t": "军队进行曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl27",
+      "t": "小夜曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl28",
+      "t": "鳟鱼五重奏",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl29",
+      "t": "降E大调夜曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl30",
+      "t": "幻想即兴曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl31",
+      "t": "革命练习曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl32",
+      "t": "小狗圆舞曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl33",
+      "t": "英雄波兰舞曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl34",
+      "t": "匈牙利狂想曲第二号",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl35",
+      "t": "爱之梦",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl36",
+      "t": "钟",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl37",
+      "t": "天鹅湖·场景",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl38",
+      "t": "四小天鹅舞曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl39",
+      "t": "糖果仙子舞曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl40",
+      "t": "花之圆舞曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl41",
+      "t": "第一钢琴协奏曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl42",
+      "t": "1812序曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl43",
+      "t": "帕格尼尼主题狂想曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl44",
+      "t": "第二钢琴协奏曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl45",
+      "t": "野蜂飞舞",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl46",
+      "t": "彼得与狼",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl47",
+      "t": "剑之舞",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl48",
+      "t": "蓝色多瑙河",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl49",
+      "t": "春之声圆舞曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl50",
+      "t": "拉德茨基进行曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl51",
+      "t": "匈牙利舞曲第五号",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl52",
+      "t": "摇篮曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl53",
+      "t": "婚礼进行曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl54",
+      "t": "婚礼进行曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl55",
+      "t": "e小调小提琴协奏曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl56",
+      "t": "梦幻曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl57",
+      "t": "卡门序曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl58",
+      "t": "卡门间奏曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl59",
+      "t": "康康舞曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl60",
+      "t": "威廉退尔序曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl61",
+      "t": "凯旋进行曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl62",
+      "t": "晨曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl63",
+      "t": "在山魔王的宫殿里",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl64",
+      "t": "a小调钢琴协奏曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl65",
+      "t": "爱的礼赞",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl66",
+      "t": "威风堂堂进行曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl67",
+      "t": "天鹅",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl68",
+      "t": "骷髅之舞",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl69",
+      "t": "月光",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl70",
+      "t": "亚麻色头发的少女",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl71",
+      "t": "裸体歌舞第一号",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl72",
+      "t": "波莱罗舞曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl73",
+      "t": "自新大陆交响曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl74",
+      "t": "幽默曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl75",
+      "t": "沃尔塔瓦河",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl76",
+      "t": "第24号随想曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl77",
+      "t": "流浪者之歌",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl78",
+      "t": "查尔达什舞曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl79",
+      "t": "爱的喜悦",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl80",
+      "t": "爱的忧伤",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl81",
+      "t": "圣母颂",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl82",
+      "t": "木星",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl83",
+      "t": "哦命运女神",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "cl84",
+      "t": "皇家烟花",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "n3398",
+      "t": "Experience",
+      "cached": true,
+      "bytes": 40929
+    },
+    {
+      "id": "n3399",
+      "t": "Nuvole Bianche",
+      "cached": true,
+      "bytes": 40929
+    },
+    {
+      "id": "j01",
+      "t": "龙卷风",
+      "region": "tw",
+      "matched": "龍捲風 / 周杰倫",
+      "start": 22.5,
+      "bytes": 40929
+    },
+    {
+      "id": "j02",
+      "t": "双截棍",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "j03",
+      "t": "简单爱",
+      "region": "tw",
+      "matched": "簡單愛 / 周杰倫",
+      "start": 6,
+      "bytes": 40929
+    },
+    {
+      "id": "j04",
+      "t": "晴天",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "j05",
+      "t": "七里香",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "j06",
+      "t": "夜曲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "j07",
+      "t": "发如雪",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "j08",
+      "t": "千里之外",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "j09",
+      "t": "菊花台",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "j10",
+      "t": "本草纲目",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "j11",
+      "t": "青花瓷",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "j12",
+      "t": "稻香",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "j13",
+      "t": "说好的幸福呢",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "j16",
+      "t": "告白气球",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "j17",
+      "t": "Mojito",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "h01",
+      "t": "江南",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "h04",
+      "t": "那些你很冒险的梦",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "h05",
+      "t": "修炼爱情",
+      "region": "tw",
+      "matched": "修煉愛情 / 林俊傑",
+      "start": 3,
+      "bytes": 40929
+    },
+    {
+      "id": "h07",
+      "t": "十年",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "h08",
+      "t": "浮夸",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "h11",
+      "t": "红玫瑰",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "h14",
+      "t": "孤勇者",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "h15",
+      "t": "红豆",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "b05",
+      "t": "温柔",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "b06",
+      "t": "倔强",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "b07",
+      "t": "恋爱ing",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "b08",
+      "t": "突然好想你",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "b09",
+      "t": "死了都要爱",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "b10",
+      "t": "说好不哭",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "w01",
+      "t": "勇气",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "w02",
+      "t": "宁夏",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "w03",
+      "t": "暖暖",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "w04",
+      "t": "天黑黑",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "w07",
+      "t": "舞娘",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "w08",
+      "t": "日不落",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "w09",
+      "t": "爱你",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "w10",
+      "t": "隐形的翅膀",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "w12",
+      "t": "听海",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "w15",
+      "t": "泡沫",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "w16",
+      "t": "光年之外",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "w18",
+      "t": "小幸运",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "w20",
+      "t": "年轮",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "w27",
+      "t": "体面",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "w28",
+      "t": "我的歌声里",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m01",
+      "t": "心太软",
+      "region": "tw",
+      "matched": "心太軟 / 任賢齊",
+      "start": 18.5,
+      "bytes": 40929
+    },
+    {
+      "id": "m02",
+      "t": "对面的女孩看过来",
+      "region": "tw",
+      "matched": "對面的女孩看過來 / 任賢齊",
+      "start": 22.5,
+      "bytes": 40929
+    },
+    {
+      "id": "m03",
+      "t": "后来",
+      "region": "tw",
+      "matched": "後來 / 劉若英",
+      "start": 20.5,
+      "bytes": 40929
+    },
+    {
+      "id": "m06",
+      "t": "爱很简单",
+      "region": "tw",
+      "matched": "愛, 很簡單 / 陶喆",
+      "start": 24.5,
+      "bytes": 40929
+    },
+    {
+      "id": "m07",
+      "t": "情非得已",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m09",
+      "t": "朋友",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m15",
+      "t": "那些花儿",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m18",
+      "t": "平凡之路",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m19",
+      "t": "蓝莲花",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m20",
+      "t": "曾经的你",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m21",
+      "t": "怒放的生命",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m22",
+      "t": "北京北京",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m24",
+      "t": "董小姐",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m25",
+      "t": "斑马斑马",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m26",
+      "t": "安和桥",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m27",
+      "t": "成都",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m28",
+      "t": "南山南",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m29",
+      "t": "模特",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m30",
+      "t": "年少有为",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m31",
+      "t": "演员",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m33",
+      "t": "消愁",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m37",
+      "t": "传奇",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m38",
+      "t": "水星记",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m39",
+      "t": "说谎",
+      "region": "tw",
+      "matched": "說謊 / 林宥嘉",
+      "start": 15.5,
+      "bytes": 40929
+    },
+    {
+      "id": "m43",
+      "t": "有何不可",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "m49",
+      "t": "无羁",
+      "region": "jp",
+      "matched": "无羁 (肖战 独唱版 《陈情令》电视剧主题曲) / 肖战",
+      "start": 16,
+      "bytes": 40929
+    },
+    {
+      "id": "v02",
+      "t": "两只蝴蝶",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "v06",
+      "t": "月亮之上",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "v08",
+      "t": "小苹果",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "v09",
+      "t": "学猫叫",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "v10",
+      "t": "生僻字",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "v11",
+      "t": "沙漠骆驼",
+      "region": "jp",
+      "matched": "沙漠骆驼(魑魅魍魉) / 展展和罗罗",
+      "start": 22.5,
+      "bytes": 40929
+    },
+    {
+      "id": "v12",
+      "t": "红昭愿",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "v13",
+      "t": "芒种",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "v14",
+      "t": "少年",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "v15",
+      "t": "你的答案",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "v16",
+      "t": "起风了",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "g01",
+      "t": "Legends Never Die",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "g07",
+      "t": "Lemon",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "e09",
+      "t": "Let It Go",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x01",
+      "t": "以父之名",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x02",
+      "t": "东风破",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x04",
+      "t": "一路向北",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x05",
+      "t": "听妈妈的话",
+      "region": "tw",
+      "matched": "聽媽媽的話 / 周杰倫",
+      "start": 13,
+      "bytes": 40929
+    },
+    {
+      "id": "x06",
+      "t": "彩虹",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x11",
+      "t": "她说",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x12",
+      "t": "可惜没如果",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x13",
+      "t": "淘汰",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x19",
+      "t": "因为爱情",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x27",
+      "t": "女人花",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x32",
+      "t": "山丘",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x35",
+      "t": "挪威的森林",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x39",
+      "t": "小情歌",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x41",
+      "t": "黄昏",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x52",
+      "t": "追梦赤子心",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x53",
+      "t": "夜空中最亮的星",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x55",
+      "t": "出山",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x56",
+      "t": "烟火里的尘埃",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x57",
+      "t": "一荤一素",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x58",
+      "t": "戒烟",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x60",
+      "t": "凉凉",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x62",
+      "t": "倒带",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x63",
+      "t": "我怀念的",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x65",
+      "t": "睫毛弯弯",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x66",
+      "t": "三天三夜",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x67",
+      "t": "慢慢喜欢你",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x68",
+      "t": "青春修炼手册",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x69",
+      "t": "飞鸟和蝉",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x71",
+      "t": "星辰大海",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x73",
+      "t": "可可托海的牧羊人",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x74",
+      "t": "香水有毒",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x75",
+      "t": "求佛",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x77",
+      "t": "爱情买卖",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "x78",
+      "t": "忐忑",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y03",
+      "t": "借口",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y06",
+      "t": "夜的第七章",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y08",
+      "t": "牛仔很忙",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y10",
+      "t": "兰亭序",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y11",
+      "t": "给我一首歌的时间",
+      "region": "tw",
+      "matched": "給我一首歌的時間 / 周杰倫",
+      "start": 16.5,
+      "bytes": 40929
+    },
+    {
+      "id": "y13",
+      "t": "等你下课",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y16",
+      "t": "干杯",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y17",
+      "t": "我不愿让你一个人",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y22",
+      "t": "普通朋友",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y23",
+      "t": "就是爱你",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y32",
+      "t": "中国人",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y36",
+      "t": "姐妹",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y42",
+      "t": "看我72变",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y43",
+      "t": "说爱你",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y45",
+      "t": "绿光",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y47",
+      "t": "分手快乐",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y48",
+      "t": "会呼吸的痛",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y55",
+      "t": "雨蝶",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y61",
+      "t": "征服",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y63",
+      "t": "默",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y64",
+      "t": "好汉歌",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y65",
+      "t": "天路",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y66",
+      "t": "你快回来",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y67",
+      "t": "无所谓",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y68",
+      "t": "他一定很爱你",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y69",
+      "t": "2002年的第一场雪",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y70",
+      "t": "冲动的惩罚",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y71",
+      "t": "春天里",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y72",
+      "t": "飞得更高",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y73",
+      "t": "生如夏花",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y76",
+      "t": "一生有你",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y77",
+      "t": "最美",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y78",
+      "t": "老男孩",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y79",
+      "t": "父亲",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y80",
+      "t": "时间都去哪儿了",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "y83",
+      "t": "酸酸甜甜就是我",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p01",
+      "t": "爱在西元前",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p02",
+      "t": "开不了口",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p03",
+      "t": "安静",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p10",
+      "t": "珊瑚海",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p12",
+      "t": "蒲公英的约定",
+      "region": "tw",
+      "matched": "蒲公英的約定 / 周杰倫",
+      "start": 13.5,
+      "bytes": 40929
+    },
+    {
+      "id": "p14",
+      "t": "拥抱",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p20",
+      "t": "你不是真正的快乐",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p21",
+      "t": "星空",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p30",
+      "t": "美人鱼",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p33",
+      "t": "交换余生",
+      "region": "tw",
+      "matched": "交換餘生 / 林俊傑",
+      "start": 24.5,
+      "bytes": 40929
+    },
+    {
+      "id": "p34",
+      "t": "花田错",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p42",
+      "t": "寂寞的季节",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p49",
+      "t": "冰雨",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p51",
+      "t": "男人哭吧不是罪",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p70",
+      "t": "伤心太平洋",
+      "region": "tw",
+      "matched": "傷心太平洋 / 任賢齊",
+      "start": 17.5,
+      "bytes": 40929
+    },
+    {
+      "id": "p78",
+      "t": "春泥",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p82",
+      "t": "燕尾蝶",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p84",
+      "t": "寂寞沙洲冷",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p86",
+      "t": "我们的爱",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p87",
+      "t": "Lydia",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p89",
+      "t": "无与伦比的美丽",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p90",
+      "t": "我好想你",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p97",
+      "t": "亲爱的那不是爱情",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p102",
+      "t": "恋人未满",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p103",
+      "t": "Super Star",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p104",
+      "t": "不想长大",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p105",
+      "t": "中国话",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p107",
+      "t": "流星雨",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p115",
+      "t": "因为爱所以爱",
+      "region": "tw",
+      "matched": "因為愛所以愛 / 謝霆鋒",
+      "start": 21.5,
+      "bytes": 40929
+    },
+    {
+      "id": "p116",
+      "t": "谢谢你的爱1999",
+      "region": "tw",
+      "matched": "謝謝你的愛1999 / 謝霆鋒",
+      "start": 5.5,
+      "bytes": 40929
+    },
+    {
+      "id": "p118",
+      "t": "爱的主打歌",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p121",
+      "t": "思念是一种病",
+      "region": "tw",
+      "matched": "思念是一種病 (feat. 蔡健雅) / 張震嶽",
+      "start": 22,
+      "bytes": 40931
+    },
+    {
+      "id": "p126",
+      "t": "夜夜夜夜",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p137",
+      "t": "常回家看看",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p138",
+      "t": "好日子",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p140",
+      "t": "向天再借五百年",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p145",
+      "t": "故乡",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p147",
+      "t": "庐州月",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p148",
+      "t": "素颜",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p154",
+      "t": "无价之姐",
+      "region": "tw",
+      "matched": "無價之姐 / 李宇春",
+      "start": 20.5,
+      "bytes": 40929
+    },
+    {
+      "id": "p159",
+      "t": "天外来物",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p162",
+      "t": "嘻唰唰",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p165",
+      "t": "暗香",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "p166",
+      "t": "洋葱",
+      "region": "tw",
+      "matched": "洋蔥 / 楊宗緯",
+      "start": 22,
+      "bytes": 40929
+    },
+    {
+      "id": "p167",
+      "t": "一次就好",
+      "region": "tw",
+      "matched": "一次就好 (楊宗緯版) / 楊宗緯",
+      "start": 8.5,
+      "bytes": 40929
+    },
+    {
+      "id": "p171",
+      "t": "最初的梦想",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "q01",
+      "t": "三寸天堂",
+      "region": "tw",
+      "matched": "三寸天堂 (《步步驚心》電視劇片尾曲) / 嚴藝丹",
+      "start": 6,
+      "bytes": 40929
+    },
+    {
+      "id": "q02",
+      "t": "时间煮雨",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "q04",
+      "t": "想见你想见你想见你",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "q18",
+      "t": "挥着翅膀的女孩",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "q22",
+      "t": "爱的供养",
+      "region": "tw",
+      "matched": "愛的供養 / 楊冪",
+      "start": 18,
+      "bytes": 40929
+    },
+    {
+      "id": "q24",
+      "t": "海底",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "q26",
+      "t": "送你一朵小红花",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "q27",
+      "t": "罗刹海市",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "q30",
+      "t": "慢冷",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "q32",
+      "t": "走马",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "q33",
+      "t": "阿刁",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "q35",
+      "t": "没有理想的人不伤心",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "q36",
+      "t": "你要跳舞吗",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "q37",
+      "t": "火车驶向云外",
+      "region": "tw",
+      "matched": "火車駛向雲外,夢安魂於九霄 / 刺蝟",
+      "start": 13.5,
+      "bytes": 40931
+    },
+    {
+      "id": "q39",
+      "t": "风吹麦浪",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "q40",
+      "t": "贝加尔湖畔",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "q42",
+      "t": "当你老了",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "q43",
+      "t": "套马杆",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "q44",
+      "t": "最炫民族风",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "q55",
+      "t": "如果云知道",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "q57",
+      "t": "健康歌",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "q61",
+      "t": "那女孩对我说",
+      "region": "tw",
+      "matched": "那女孩對我說 / 黃義達",
+      "start": 24.5,
+      "bytes": 40929
+    },
+    {
+      "id": "r50",
+      "t": "See You Again",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "r104",
+      "t": "你是我的眼",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "r105",
+      "t": "痴心绝对",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "s05",
+      "t": "笨小孩",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "s09",
+      "t": "至少还有你",
+      "region": "tw",
+      "matched": "至少還有你 / 林憶蓮",
+      "start": 25,
+      "bytes": 40929
+    },
+    {
+      "id": "s34",
+      "t": "情深深雨濛濛",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "s37",
+      "t": "知否知否",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "s39",
+      "t": "世间美好与你环环相扣",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "s40",
+      "t": "等一分钟",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "s41",
+      "t": "我们不一样",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "s42",
+      "t": "孤单北半球",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "s48",
+      "t": "新贵妃醉酒",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "s49",
+      "t": "刚好遇见你",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "s50",
+      "t": "卷珠帘",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "s130",
+      "t": "月光爱人",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "t01",
+      "t": "星语心愿",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "t02",
+      "t": "独家记忆",
+      "region": "tw",
+      "matched": "獨家記憶 (國) / 陳小春",
+      "start": 10.5,
+      "bytes": 40929
+    },
+    {
+      "id": "t16",
+      "t": "赤伶",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "t21",
+      "t": "花妖",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "t37",
+      "t": "知心爱人",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "t40",
+      "t": "天亮了",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "t41",
+      "t": "美丽的神话",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "t44",
+      "t": "李白",
+      "cached": true,
+      "bytes": 40685
+    },
+    {
+      "id": "t54",
+      "t": "爱上你是一个错",
+      "region": "tw",
+      "matched": "愛上你是一個錯 / 楊培安",
+      "start": 7,
+      "bytes": 40929
+    },
+    {
+      "id": "n1002",
+      "t": "爱，很简单",
+      "region": "tw",
+      "matched": "愛, 很簡單 / 陶喆",
+      "start": 24.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1004",
+      "t": "十七岁",
+      "region": "tw",
+      "matched": "十七歲 / 陶喆",
+      "start": 16,
+      "bytes": 40929
+    },
+    {
+      "id": "n1005",
+      "t": "流沙",
+      "region": "tw",
+      "matched": "流沙 (Reimagined) / 陶喆",
+      "start": 16.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1006",
+      "t": "望春风",
+      "region": "tw",
+      "matched": "望春風 / 陶喆",
+      "start": 24,
+      "bytes": 40929
+    },
+    {
+      "id": "n1008",
+      "t": "找自己",
+      "region": "tw",
+      "matched": "找自己 / 陶喆",
+      "start": 8.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1009",
+      "t": "小镇姑娘",
+      "region": "tw",
+      "matched": "小鎮姑娘 / 陶喆",
+      "start": 24.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1010",
+      "t": "天天",
+      "region": "tw",
+      "matched": "天天 / 陶喆",
+      "start": 19,
+      "bytes": 40929
+    },
+    {
+      "id": "n1012",
+      "t": "蝴蝶",
+      "region": "tw",
+      "matched": "蝴蝶 / 陶喆",
+      "start": 4.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1013",
+      "t": "月亮代表谁的心",
+      "region": "tw",
+      "matched": "月亮代表誰的心 / 陶喆",
+      "start": 18,
+      "bytes": 40929
+    },
+    {
+      "id": "n1016",
+      "t": "Runaway",
+      "region": "tw",
+      "matched": "Runaway / 陶喆",
+      "start": 25,
+      "bytes": 40929
+    },
+    {
+      "id": "n1019",
+      "t": "Susan说",
+      "region": "tw",
+      "matched": "Susan說 / 陶喆",
+      "start": 14.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1020",
+      "t": "孙子兵法",
+      "region": "tw",
+      "matched": "孫子兵法 / 陶喆",
+      "start": 19,
+      "bytes": 40929
+    },
+    {
+      "id": "n1021",
+      "t": "太美丽",
+      "region": "tw",
+      "matched": "太美麗 / 陶喆",
+      "start": 21,
+      "bytes": 40929
+    },
+    {
+      "id": "n1022",
+      "t": "忘不了",
+      "region": "tw",
+      "matched": "忘不了 / 陶喆",
+      "start": 18.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1025",
+      "t": "暗恋",
+      "region": "tw",
+      "matched": "暗戀 / 陶喆",
+      "start": 25,
+      "bytes": 40929
+    },
+    {
+      "id": "n1030",
+      "t": "反方向的钟",
+      "region": "tw",
+      "matched": "反方向的鐘 / 周杰倫",
+      "start": 15.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1031",
+      "t": "上海一九四三",
+      "region": "tw",
+      "matched": "上海一九四三 / 周杰倫",
+      "start": 24.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1033",
+      "t": "威廉古堡",
+      "region": "tw",
+      "matched": "威廉古堡 / 周杰倫",
+      "start": 1.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1035",
+      "t": "米兰的小铁匠",
+      "region": "tw",
+      "matched": "米蘭的小鐵匠 / 周杰倫",
+      "start": 3.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1040",
+      "t": "轨迹",
+      "region": "tw",
+      "matched": "軌跡 / 周杰倫",
+      "start": 21,
+      "bytes": 40929
+    },
+    {
+      "id": "n1042",
+      "t": "外婆",
+      "region": "tw",
+      "matched": "外婆 / 周杰倫",
+      "start": 1,
+      "bytes": 40929
+    },
+    {
+      "id": "n1053",
+      "t": "我们都寂寞",
+      "region": "tw",
+      "matched": "我們都寂寞 / 陳奕迅",
+      "start": 10.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1072",
+      "t": "编号89757",
+      "region": "tw",
+      "matched": "編號89757 / 林俊傑",
+      "start": 20,
+      "bytes": 40929
+    },
+    {
+      "id": "n1073",
+      "t": "木乃伊",
+      "region": "tw",
+      "matched": "木乃伊 / 林俊傑",
+      "start": 23,
+      "bytes": 40929
+    },
+    {
+      "id": "n1076",
+      "t": "期待爱",
+      "region": "tw",
+      "matched": "期待愛 (feat. 金莎) / 林俊傑",
+      "start": 24,
+      "bytes": 40929
+    },
+    {
+      "id": "n1077",
+      "t": "不潮不用花钱",
+      "region": "tw",
+      "matched": "不潮不用花錢 / 林俊傑",
+      "start": 18.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1080",
+      "t": "学不会",
+      "region": "tw",
+      "matched": "學不會 / 林俊傑",
+      "start": 23.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1091",
+      "t": "知足",
+      "region": "tw",
+      "matched": "知足 / 五月天",
+      "start": 12,
+      "bytes": 40929
+    },
+    {
+      "id": "n1096",
+      "t": "任意门",
+      "region": "tw",
+      "matched": "任意門 / 五月天",
+      "start": 7,
+      "bytes": 40929
+    },
+    {
+      "id": "n1100",
+      "t": "终结孤单",
+      "region": "tw",
+      "matched": "終結孤單 / 五月天",
+      "start": 24,
+      "bytes": 40929
+    },
+    {
+      "id": "n1112",
+      "t": "心中的日月",
+      "region": "tw",
+      "matched": "心中的日月 / 王力宏",
+      "start": 24,
+      "bytes": 40929
+    },
+    {
+      "id": "n1113",
+      "t": "盖世英雄",
+      "region": "tw",
+      "matched": "蓋世英雄 (電影《Free Guy》中文主題曲) / 王力宏",
+      "start": 21,
+      "bytes": 40931
+    },
+    {
+      "id": "n1116",
+      "t": "心跳",
+      "region": "tw",
+      "matched": "心跳 / 王力宏",
+      "start": 24,
+      "bytes": 40929
+    },
+    {
+      "id": "n1119",
+      "t": "缘分一道桥",
+      "region": "tw",
+      "matched": "緣分一道橋 (feat. 譚維維) / 王力宏",
+      "start": 23.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1125",
+      "t": "奔",
+      "region": "tw",
+      "matched": "奔 / 孫燕姿",
+      "start": 0.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1133",
+      "t": "马德里不思议",
+      "region": "tw",
+      "matched": "馬德里不思議 / JOLIN蔡依林",
+      "start": 22.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1138",
+      "t": "玫瑰少年",
+      "region": "tw",
+      "matched": "玫瑰少年 / JOLIN蔡依林",
+      "start": 0,
+      "bytes": 40511
+    },
+    {
+      "id": "n1146",
+      "t": "心如刀割",
+      "region": "tw",
+      "matched": "心如刀割 / 張學友",
+      "start": 16.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1147",
+      "t": "她来听我的演唱会",
+      "region": "tw",
+      "matched": "她來聽我的演唱會 / 張學友",
+      "start": 23,
+      "bytes": 40929
+    },
+    {
+      "id": "n1148",
+      "t": "我真的受伤了",
+      "region": "tw",
+      "matched": "我真的受傷了 / 張學友",
+      "start": 16.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1163",
+      "t": "你快乐所以我快乐",
+      "region": "tw",
+      "matched": "你快樂 (所以我快樂) / 王菲",
+      "start": 10.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1167",
+      "t": "将爱",
+      "region": "tw",
+      "matched": "將愛 / 王菲",
+      "start": 4.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1172",
+      "t": "BAD BOY",
+      "region": "tw",
+      "matched": "BAD BOY / 張惠妹",
+      "start": 22.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1173",
+      "t": "牵手",
+      "region": "tw",
+      "matched": "牽手 / 張惠妹",
+      "start": 22.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1176",
+      "t": "如果你也听说",
+      "region": "tw",
+      "matched": "如果你也聽說 / 張惠妹",
+      "start": 1,
+      "bytes": 40929
+    },
+    {
+      "id": "n1177",
+      "t": "掉了",
+      "region": "tw",
+      "matched": "掉了 / 張惠妹",
+      "start": 19,
+      "bytes": 40929
+    },
+    {
+      "id": "n1182",
+      "t": "可惜不是你",
+      "region": "tw",
+      "matched": "可惜不是你 / 梁靜茹",
+      "start": 2,
+      "bytes": 40929
+    },
+    {
+      "id": "n1184",
+      "t": "亲亲",
+      "region": "tw",
+      "matched": "親親 / 梁靜茹",
+      "start": 18,
+      "bytes": 40929
+    },
+    {
+      "id": "n1253",
+      "t": "口是心非",
+      "region": "tw",
+      "matched": "口是心非 / 張雨生",
+      "start": 2,
+      "bytes": 40929
+    },
+    {
+      "id": "n1353",
+      "t": "此时此刻",
+      "region": "tw",
+      "matched": "此時此刻 / 許巍",
+      "start": 16,
+      "bytes": 40929
+    },
+    {
+      "id": "n1373",
+      "t": "且听风吟",
+      "region": "tw",
+      "matched": "且聽風吟 / 朴樹",
+      "start": 18,
+      "bytes": 40929
+    },
+    {
+      "id": "n1381",
+      "t": "斑马，斑马",
+      "region": "tw",
+      "matched": "斑馬,斑馬 / 宋冬野",
+      "start": 13,
+      "bytes": 40929
+    },
+    {
+      "id": "n1397",
+      "t": "画",
+      "region": "tw",
+      "matched": "畫 / 趙雷",
+      "start": 24.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1402",
+      "t": "拯救",
+      "region": "tw",
+      "matched": "拯救 / 孫楠",
+      "start": 17.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1433",
+      "t": "存在",
+      "region": "tw",
+      "matched": "存在 / 汪峯",
+      "start": 13,
+      "bytes": 40931
+    },
+    {
+      "id": "n1510",
+      "t": "Lemon",
+      "region": "tw",
+      "matched": "Lemon / 米津玄師",
+      "start": 3,
+      "bytes": 40929
+    },
+    {
+      "id": "n1511",
+      "t": "打上花火",
+      "region": "tw",
+      "matched": "打上花火 / 米津玄師",
+      "start": 5.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1530",
+      "t": "千本桜",
+      "region": "jp",
+      "matched": "千本桜 (feat. 初音ミク) / CTS feat. 初音ミク",
+      "start": 22.5,
+      "bytes": 40931
+    },
+    {
+      "id": "n1540",
+      "t": "紅蓮華",
+      "region": "tw",
+      "matched": "紅蓮華 - From THE FIRST TAKE / LiSA",
+      "start": 16.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1541",
+      "t": "炎",
+      "region": "tw",
+      "matched": "炎 / LiSA",
+      "start": 18.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1612",
+      "t": "アイドル",
+      "region": "tw",
+      "matched": "アイドル / YOASOBI",
+      "start": 17,
+      "bytes": 40929
+    },
+    {
+      "id": "n1712",
+      "t": "Spring Day",
+      "region": "jp",
+      "matched": "Spring Day / BTS",
+      "start": 3.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1770",
+      "t": "Hype Boy",
+      "region": "tw",
+      "matched": "Hype Boy / NewJeans",
+      "start": 24.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n1780",
+      "t": "Cupid",
+      "region": "tw",
+      "matched": "Cupid (Instrumental) / FIFTY FIFTY",
+      "start": 25,
+      "bytes": 40929
+    },
+    {
+      "id": "n1941",
+      "t": "Stan",
+      "region": "tw",
+      "matched": "Stan (feat. Dido) / Eminem",
+      "start": 24,
+      "bytes": 40929
+    },
+    {
+      "id": "n1950",
+      "t": "Shape Of You",
+      "region": "tw",
+      "matched": "Shape of You / Ed Sheeran",
+      "start": 8,
+      "bytes": 40929
+    },
+    {
+      "id": "n1960",
+      "t": "Rolling In The Deep",
+      "region": "tw",
+      "matched": "Rolling In the Deep (Acapella) / Adele",
+      "start": 18.5,
+      "bytes": 40931
+    },
+    {
+      "id": "n1970",
+      "t": "Bad Guy",
+      "region": "tw",
+      "matched": "bad guy / Billie Eilish",
+      "start": 19,
+      "bytes": 40929
+    },
+    {
+      "id": "n1991",
+      "t": "Just The Way You Are",
+      "region": "tw",
+      "matched": "Just the Way You Are / Bruno Mars",
+      "start": 22,
+      "bytes": 40929
+    },
+    {
+      "id": "n2002",
+      "t": "Cruel Summer",
+      "region": "tw",
+      "matched": "Cruel Summer / Taylor Swift",
+      "start": 5,
+      "bytes": 40929
+    },
+    {
+      "id": "n2003",
+      "t": "Anti-Hero",
+      "region": "tw",
+      "matched": "Anti-Hero / Taylor Swift",
+      "start": 25,
+      "bytes": 40929
+    },
+    {
+      "id": "n2103",
+      "t": "热带雨林",
+      "region": "tw",
+      "matched": "熱帶雨林 / S.H.E",
+      "start": 16.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n2121",
+      "t": "我爱台妹",
+      "region": "tw",
+      "matched": "我愛台妹 / MC HOTDOG & 張震嶽",
+      "start": 1,
+      "bytes": 40929
+    },
+    {
+      "id": "n2131",
+      "t": "野狼disco",
+      "region": "jp",
+      "matched": "野狼Disco (安全带篇) / 宝石Gem",
+      "start": 15,
+      "bytes": 40929
+    },
+    {
+      "id": "n2310",
+      "t": "片翼の天使",
+      "region": "tw",
+      "matched": "「片翼の天使 - Orchestra Version -」from FINAL FANTASY VII / 植松伸夫",
+      "start": 25,
+      "bytes": 40929
+    },
+    {
+      "id": "n2311",
+      "t": "Eyes On Me",
+      "region": "tw",
+      "matched": "Eyes On Me / 王菲",
+      "start": 10.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n2350",
+      "t": "Weight of the World",
+      "region": "sg",
+      "matched": "Weight of the World (Arranged by ZANIO) / Keiichi Okabe & ZANIO",
+      "start": 22,
+      "bytes": 40931
+    },
+    {
+      "id": "n2450",
+      "t": "大鱼",
+      "region": "tw",
+      "matched": "大魚 / 周深",
+      "start": 15.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n2451",
+      "t": "化身孤岛的鲸",
+      "region": "tw",
+      "matched": "化身孤島的鯨 / 周深",
+      "start": 22.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n2452",
+      "t": "起风了（周深版）",
+      "region": "tw",
+      "matched": "起風了 / 周深",
+      "start": 9.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n2501",
+      "t": "牵丝戏",
+      "region": "tw",
+      "matched": "牽絲戲 / 銀臨 & Aki阿傑",
+      "start": 17.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n2502",
+      "t": "棠梨煎雪",
+      "region": "tw",
+      "matched": "棠梨煎雪 / 銀臨",
+      "start": 10.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n2510",
+      "t": "锦鲤抄",
+      "region": "jp",
+      "matched": "锦鲤抄 / 银临 & 云の泣",
+      "start": 0,
+      "bytes": 40720
+    },
+    {
+      "id": "n2521",
+      "t": "九张机",
+      "region": "jp",
+      "matched": "九张机 (《双世宠妃》网剧主题曲) / 叶炫清",
+      "start": 8.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n2530",
+      "t": "半壶纱",
+      "region": "jp",
+      "matched": "半壶纱 (电视剧《小女花不弃》插曲) / 劉珂矣",
+      "start": 12.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n2540",
+      "t": "悟空",
+      "region": "tw",
+      "matched": "悟空 / 戴荃",
+      "start": 0.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n2550",
+      "t": "凉凉",
+      "region": "tw",
+      "matched": "凉凉 (電視劇《三生三世十里桃花》片尾曲) [with 張碧晨] / 楊宗緯",
+      "start": 3,
+      "bytes": 40929
+    },
+    {
+      "id": "n2551",
+      "t": "雪落下的声音",
+      "region": "tw",
+      "matched": "雪落下的聲音 (電視劇《延禧攻略》片尾曲) / 陸虎",
+      "start": 8,
+      "bytes": 40929
+    },
+    {
+      "id": "n2560",
+      "t": "知否知否",
+      "region": "tw",
+      "matched": "知否知否 / 胡夏 & 郁可唯",
+      "start": 17.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n2653",
+      "t": "清明上河图",
+      "region": "tw",
+      "matched": "清明上河圖 / 李玉剛",
+      "start": 16,
+      "bytes": 40929
+    },
+    {
+      "id": "n2745",
+      "t": "粉色海洋",
+      "region": "tw",
+      "matched": "粉色海洋 / 周杰倫",
+      "start": 0.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n2761",
+      "t": "多想在平庸的生活拥抱你",
+      "region": "tw",
+      "matched": "多想在平庸的生活擁抱你 / 隔壁老樊",
+      "start": 10,
+      "bytes": 40929
+    },
+    {
+      "id": "n2840",
+      "t": "灯火里的中国",
+      "region": "tw",
+      "matched": "燈火裡的中國 / 張也 & 周深",
+      "start": 24.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n2850",
+      "t": "如愿",
+      "region": "tw",
+      "matched": "如愿 / 王菲",
+      "start": 20.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n2860",
+      "t": "这世界那么多人",
+      "region": "tw",
+      "matched": "這世界那麼多人 (電影《我要我們在一起》主題曲) / 莫文蔚",
+      "start": 0,
+      "bytes": 40720
+    },
+    {
+      "id": "n2863",
+      "t": "广岛之恋",
+      "region": "tw",
+      "matched": "廣島之戀 / 莫文蔚",
+      "start": 14.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n2871",
+      "t": "点歌的人",
+      "region": "tw",
+      "matched": "點歌的人 / 海來阿木",
+      "start": 2.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n2920",
+      "t": "约定",
+      "region": "tw",
+      "matched": "約定 / 周蕙",
+      "start": 25,
+      "bytes": 40929
+    },
+    {
+      "id": "n2921",
+      "t": "不想让你知道",
+      "region": "tw",
+      "matched": "不想讓你知道 / 周蕙",
+      "start": 8.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3000",
+      "t": "海阔天空（国语）",
+      "region": "tw",
+      "matched": "海闊天空 / 信樂團",
+      "start": 22.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3122",
+      "t": "一笑而过",
+      "region": "tw",
+      "matched": "一笑而過 / 那英",
+      "start": 24.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3123",
+      "t": "梦一场",
+      "region": "tw",
+      "matched": "夢一場 / 那英",
+      "start": 24,
+      "bytes": 40929
+    },
+    {
+      "id": "n3124",
+      "t": "心酸的浪漫",
+      "region": "tw",
+      "matched": "心酸的浪漫 / 那英",
+      "start": 13,
+      "bytes": 40929
+    },
+    {
+      "id": "n3132",
+      "t": "寂寞寂寞就好",
+      "region": "tw",
+      "matched": "寂寞寂寞就好 / 田馥甄",
+      "start": 22.5,
+      "bytes": 40931
+    },
+    {
+      "id": "n3134",
+      "t": "Love!",
+      "region": "tw",
+      "matched": "Love! / 田馥甄",
+      "start": 19.5,
+      "bytes": 40931
+    },
+    {
+      "id": "n3135",
+      "t": "悬日",
+      "region": "tw",
+      "matched": "懸日 / 田馥甄",
+      "start": 25,
+      "bytes": 40929
+    },
+    {
+      "id": "n3141",
+      "t": "丑八怪",
+      "region": "tw",
+      "matched": "醜八怪 / 薛之謙",
+      "start": 25,
+      "bytes": 40929
+    },
+    {
+      "id": "n3144",
+      "t": "刚刚好",
+      "region": "tw",
+      "matched": "剛剛好 / 薛之謙",
+      "start": 11,
+      "bytes": 40929
+    },
+    {
+      "id": "n3145",
+      "t": "你还要我怎样",
+      "region": "tw",
+      "matched": "你還要我怎樣 / 薛之謙",
+      "start": 5.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3149",
+      "t": "我好像在哪见过你",
+      "region": "tw",
+      "matched": "我好像在哪見過你 / 薛之謙",
+      "start": 20,
+      "bytes": 40929
+    },
+    {
+      "id": "n3155",
+      "t": "喜剧之王",
+      "region": "tw",
+      "matched": "喜劇之王 / 李榮浩",
+      "start": 13.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3156",
+      "t": "不将就",
+      "region": "tw",
+      "matched": "不將就 (電影《何以笙簫默》片尾曲) / 李榮浩",
+      "start": 23.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3157",
+      "t": "爸爸妈妈",
+      "region": "tw",
+      "matched": "爸爸媽媽 / 李榮浩",
+      "start": 8.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3162",
+      "t": "平凡的一天",
+      "region": "tw",
+      "matched": "平凡的一天 / 毛不易",
+      "start": 24.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3164",
+      "t": "借",
+      "region": "tw",
+      "matched": "借 / 毛不易",
+      "start": 22,
+      "bytes": 40929
+    },
+    {
+      "id": "n3165",
+      "t": "无问",
+      "region": "tw",
+      "matched": "無問(電影《無問西東》宣傳曲) / 毛不易",
+      "start": 1,
+      "bytes": 40929
+    },
+    {
+      "id": "n3167",
+      "t": "东北民谣",
+      "region": "tw",
+      "matched": "東北民謠 / 毛不易",
+      "start": 14,
+      "bytes": 40929
+    },
+    {
+      "id": "n3172",
+      "t": "异类",
+      "region": "tw",
+      "matched": "異類 / 華晨宇",
+      "start": 10,
+      "bytes": 40929
+    },
+    {
+      "id": "n3173",
+      "t": "齐天",
+      "region": "tw",
+      "matched": "齊天 / 華晨宇",
+      "start": 6.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3174",
+      "t": "寒鸦少年",
+      "region": "tw",
+      "matched": "寒鴉少年 / 華晨宇",
+      "start": 15,
+      "bytes": 40929
+    },
+    {
+      "id": "n3180",
+      "t": "这，就是爱",
+      "region": "tw",
+      "matched": "這,就是愛 / 張杰",
+      "start": 20.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3182",
+      "t": "明天过后",
+      "region": "tw",
+      "matched": "明天過後 / 張杰",
+      "start": 20.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3186",
+      "t": "剑心",
+      "region": "jp",
+      "matched": "剑心 / 张杰",
+      "start": 23.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3191",
+      "t": "有点甜",
+      "region": "jp",
+      "matched": "有点甜 (《萌三国》网游主题曲|《微微一笑很倾城》电视剧插曲) / 汪苏泷 & By2",
+      "start": 14.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3193",
+      "t": "一笑倾城",
+      "region": "tw",
+      "matched": "一笑傾城 (《微微一笑很傾城》電視劇片頭曲) / 汪蘇瀧",
+      "start": 10.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3194",
+      "t": "耿",
+      "region": "tw",
+      "matched": "耿 (《最好的我們》電影畢業季主題曲) / 汪蘇瀧",
+      "start": 18.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3195",
+      "t": "那个男孩",
+      "region": "tw",
+      "matched": "那個男孩 / 汪蘇瀧",
+      "start": 24,
+      "bytes": 40929
+    },
+    {
+      "id": "n3206",
+      "t": "雅俗共赏",
+      "region": "tw",
+      "matched": "雅俗共賞 / 許嵩",
+      "start": 14,
+      "bytes": 40929
+    },
+    {
+      "id": "n3207",
+      "t": "城府",
+      "region": "tw",
+      "matched": "城府 / 許嵩",
+      "start": 16.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3212",
+      "t": "寓言",
+      "region": "tw",
+      "matched": "寓言 / 張韶涵",
+      "start": 11,
+      "bytes": 40929
+    },
+    {
+      "id": "n3216",
+      "t": "梦里花",
+      "region": "tw",
+      "matched": "夢裡花 / 張韶涵",
+      "start": 22,
+      "bytes": 40929
+    },
+    {
+      "id": "n3220",
+      "t": "当你",
+      "region": "tw",
+      "matched": "當你 / 王心凌",
+      "start": 17,
+      "bytes": 40929
+    },
+    {
+      "id": "n3224",
+      "t": "我会好好的",
+      "region": "tw",
+      "matched": "我會好好的 / 王心凌",
+      "start": 15,
+      "bytes": 40929
+    },
+    {
+      "id": "n3225",
+      "t": "彩虹的微笑",
+      "region": "tw",
+      "matched": "彩虹的微笑 / 王心凌",
+      "start": 23,
+      "bytes": 40929
+    },
+    {
+      "id": "n3226",
+      "t": "Honey",
+      "region": "tw",
+      "matched": "Honey / 王心凌",
+      "start": 22,
+      "bytes": 40929
+    },
+    {
+      "id": "n3234",
+      "t": "突然想起你",
+      "region": "tw",
+      "matched": "突然想起你 / 蕭亞軒",
+      "start": 10.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3235",
+      "t": "表白",
+      "region": "tw",
+      "matched": "表白 / 蕭亞軒",
+      "start": 12.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3241",
+      "t": "左边",
+      "region": "tw",
+      "matched": "左邊 / 楊丞琳",
+      "start": 10,
+      "bytes": 40929
+    },
+    {
+      "id": "n3244",
+      "t": "匿名的好友",
+      "region": "tw",
+      "matched": "匿名的好友 / 楊丞琳",
+      "start": 22.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3245",
+      "t": "年轮说",
+      "region": "tw",
+      "matched": "年輪說 / 楊丞琳",
+      "start": 24.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3252",
+      "t": "那些花儿（范玮琪版）",
+      "region": "tw",
+      "matched": "那些花兒 / 范瑋琪",
+      "start": 24,
+      "bytes": 40929
+    },
+    {
+      "id": "n3253",
+      "t": "到不了",
+      "region": "tw",
+      "matched": "到不了 / 范瑋琪",
+      "start": 16,
+      "bytes": 40929
+    },
+    {
+      "id": "n3254",
+      "t": "如果的事",
+      "region": "tw",
+      "matched": "如果的事(韓劇\"浪漫滿屋\"/\"巴黎戀人\"中文片尾曲) / 范瑋琪",
+      "start": 23.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3255",
+      "t": "是非题",
+      "region": "tw",
+      "matched": "是非題 / 范瑋琪",
+      "start": 14,
+      "bytes": 40929
+    },
+    {
+      "id": "n3263",
+      "t": "你是我的花朵",
+      "region": "tw",
+      "matched": "妳是我的花朵 / 伍佰 & China Blue",
+      "start": 3.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3266",
+      "t": "被动",
+      "region": "tw",
+      "matched": "被動 / 伍佰",
+      "start": 21.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3270",
+      "t": "雨一直下",
+      "region": "tw",
+      "matched": "雨一直下 / 張宇",
+      "start": 1.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3274",
+      "t": "曲终人散",
+      "region": "tw",
+      "matched": "曲終人散 (Remastered) / 張宇",
+      "start": 8.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3275",
+      "t": "小小的太阳",
+      "region": "tw",
+      "matched": "小小的太陽 / 張宇",
+      "start": 24.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3285",
+      "t": "海啸",
+      "region": "tw",
+      "matched": "海嘯 / 庾澄慶",
+      "start": 18.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3291",
+      "t": "第一次",
+      "region": "tw",
+      "matched": "第一次 / 光良",
+      "start": 23,
+      "bytes": 40929
+    },
+    {
+      "id": "n3294",
+      "t": "想见你",
+      "region": "tw",
+      "matched": "想見你 / 光良",
+      "start": 13.5,
+      "bytes": 40931
+    },
+    {
+      "id": "n3296",
+      "t": "疼你的责任",
+      "region": "tw",
+      "matched": "疼妳的責任 / 品冠",
+      "start": 24,
+      "bytes": 40929
+    },
+    {
+      "id": "n3300",
+      "t": "爱爱爱",
+      "region": "tw",
+      "matched": "愛愛愛 / 方大同",
+      "start": 21.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3302",
+      "t": "特别的人",
+      "region": "tw",
+      "matched": "特別的人 / 方大同",
+      "start": 14.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3303",
+      "t": "春风吹",
+      "region": "tw",
+      "matched": "春風吹 / 方大同",
+      "start": 25,
+      "bytes": 40929
+    },
+    {
+      "id": "n3311",
+      "t": "新不了情",
+      "region": "tw",
+      "matched": "新不了情 / 蕭敬騰",
+      "start": 25,
+      "bytes": 40929
+    },
+    {
+      "id": "n3312",
+      "t": "海芋恋",
+      "region": "tw",
+      "matched": "海芋戀 / 蕭敬騰",
+      "start": 6.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3313",
+      "t": "会痛的石头",
+      "region": "tw",
+      "matched": "會痛的石頭 / 蕭敬騰",
+      "start": 19.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3315",
+      "t": "王子的新衣",
+      "region": "tw",
+      "matched": "王子的新衣 / 蕭敬騰",
+      "start": 4,
+      "bytes": 40929
+    },
+    {
+      "id": "n3323",
+      "t": "傻子",
+      "region": "tw",
+      "matched": "傻子 / 林宥嘉",
+      "start": 13.5,
+      "bytes": 40931
+    },
+    {
+      "id": "n3325",
+      "t": "想自由",
+      "region": "tw",
+      "matched": "想自由 / 林宥嘉",
+      "start": 23.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3332",
+      "t": "极限",
+      "region": "tw",
+      "matched": "極限 / 徐佳瑩",
+      "start": 23.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3340",
+      "t": "给我一个理由忘记",
+      "region": "tw",
+      "matched": "給我一個理由忘記 / A-Lin",
+      "start": 22.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3341",
+      "t": "失恋无罪",
+      "region": "tw",
+      "matched": "失戀無罪 / A-Lin",
+      "start": 10,
+      "bytes": 40929
+    },
+    {
+      "id": "n3342",
+      "t": "寂寞不痛",
+      "region": "tw",
+      "matched": "寂寞不痛 / A-Lin",
+      "start": 10,
+      "bytes": 40929
+    },
+    {
+      "id": "n3343",
+      "t": "Romadiw",
+      "region": "tw",
+      "matched": "ROMADIW / A-Lin",
+      "start": 3,
+      "bytes": 40929
+    },
+    {
+      "id": "n3344",
+      "t": "幸福了 然后呢",
+      "region": "tw",
+      "matched": "幸福了 然後呢 / A-Lin",
+      "start": 16,
+      "bytes": 40929
+    },
+    {
+      "id": "n3350",
+      "t": "易燃易爆炸",
+      "region": "tw",
+      "matched": "易燃易爆炸 / 陳粒",
+      "start": 8,
+      "bytes": 40929
+    },
+    {
+      "id": "n3353",
+      "t": "历历万乡",
+      "region": "tw",
+      "matched": "歷歷萬鄉 / 陳粒",
+      "start": 14.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3355",
+      "t": "爱人错过",
+      "region": "tw",
+      "matched": "愛人錯過 / 告五人",
+      "start": 8,
+      "bytes": 40929
+    },
+    {
+      "id": "n3356",
+      "t": "在这座城市遗失了你",
+      "region": "tw",
+      "matched": "在這座城市遺失了你 (戲劇《他們創業的那些鳥事》插曲) / 告五人",
+      "start": 1,
+      "bytes": 40929
+    },
+    {
+      "id": "n3357",
+      "t": "披星戴月的想你",
+      "region": "tw",
+      "matched": "披星戴月的想你 / 告五人",
+      "start": 12,
+      "bytes": 40929
+    },
+    {
+      "id": "n3358",
+      "t": "浪子回头",
+      "region": "tw",
+      "matched": "浪子回頭 / 茄子蛋",
+      "start": 19.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3372",
+      "t": "无情的情书",
+      "region": "tw",
+      "matched": "無情的情書 / 動力火車",
+      "start": 16.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3375",
+      "t": "忘记我还是忘记他",
+      "region": "tw",
+      "matched": "忘記我還是忘記他 / 迪克牛仔",
+      "start": 24.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3378",
+      "t": "千年之恋",
+      "region": "tw",
+      "matched": "千年之戀 / 飛兒樂團",
+      "start": 25,
+      "bytes": 40929
+    },
+    {
+      "id": "n3381",
+      "t": "你啊你啊",
+      "region": "tw",
+      "matched": "你啊你啊 / 魏如萱",
+      "start": 24,
+      "bytes": 40929
+    },
+    {
+      "id": "n3382",
+      "t": "一万次悲伤",
+      "region": "tw",
+      "matched": "一萬次悲傷 / 逃跑計劃",
+      "start": 6.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3385",
+      "t": "烂泥",
+      "region": "tw",
+      "matched": "爛泥 / 草東沒有派對",
+      "start": 8,
+      "bytes": 40929
+    },
+    {
+      "id": "n3391",
+      "t": "Made in China",
+      "region": "tw",
+      "matched": "Made In China (feat. Famous Dex) / Higher Brothers",
+      "start": 18,
+      "bytes": 40929
+    },
+    {
+      "id": "n3393",
+      "t": "空城计",
+      "region": "tw",
+      "matched": "空城計 / GAI",
+      "start": 21,
+      "bytes": 40929
+    },
+    {
+      "id": "n3411",
+      "t": "四季予你",
+      "region": "tw",
+      "matched": "四季予你 (DJ小男孩版) / 程響",
+      "start": 16,
+      "bytes": 40929
+    },
+    {
+      "id": "n3412",
+      "t": "人间烟火",
+      "region": "tw",
+      "matched": "人間煙火 / 程響",
+      "start": 19,
+      "bytes": 40929
+    },
+    {
+      "id": "n3416",
+      "t": "我的纸飞机",
+      "region": "jp",
+      "matched": "我的纸飞机 / GooGoo & 王之睿",
+      "start": 0.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3419",
+      "t": "大风吹（王赫野）",
+      "region": "tw",
+      "matched": "大風吹 / 王赫野",
+      "start": 21.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3420",
+      "t": "我记得",
+      "region": "tw",
+      "matched": "我記得 / 趙雷",
+      "start": 25,
+      "bytes": 40929
+    },
+    {
+      "id": "n3423",
+      "t": "秋酿",
+      "region": "jp",
+      "matched": "秋酿 / 房东的猫",
+      "start": 22,
+      "bytes": 40929
+    },
+    {
+      "id": "n3510",
+      "t": "小薇",
+      "region": "tw",
+      "matched": "小薇 / 黃品源",
+      "start": 12,
+      "bytes": 40929
+    },
+    {
+      "id": "n3521",
+      "t": "阳光总在风雨后",
+      "region": "tw",
+      "matched": "陽光總在風雨後 / 許美靜",
+      "start": 25,
+      "bytes": 40929
+    },
+    {
+      "id": "n3522",
+      "t": "遗憾",
+      "region": "tw",
+      "matched": "遺憾 / 許美靜",
+      "start": 22.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3523",
+      "t": "铁窗",
+      "region": "tw",
+      "matched": "鐵窗 (Unplugged) / 許美靜",
+      "start": 15.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3524",
+      "t": "囚鸟",
+      "region": "tw",
+      "matched": "囚鳥 / 彭羚",
+      "start": 21,
+      "bytes": 40929
+    },
+    {
+      "id": "n3546",
+      "t": "希望",
+      "region": "tw",
+      "matched": "希望 / 陳慧琳",
+      "start": 10.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3549",
+      "t": "小城大事",
+      "region": "tw",
+      "matched": "小城大事 / 楊千嬅",
+      "start": 20.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3562",
+      "t": "男人最痛",
+      "region": "tw",
+      "matched": "男人最痛 (國) / 許志安",
+      "start": 18,
+      "bytes": 40929
+    },
+    {
+      "id": "n3563",
+      "t": "越吻越伤心",
+      "region": "tw",
+      "matched": "越吻越傷心 / 吳國敬 & 蘇永康",
+      "start": 21,
+      "bytes": 40931
+    },
+    {
+      "id": "n3584",
+      "t": "命硬",
+      "region": "tw",
+      "matched": "命硬 / 側田",
+      "start": 24.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3586",
+      "t": "大哥",
+      "region": "tw",
+      "matched": "大哥 / 衛蘭",
+      "start": 6.5,
+      "bytes": 40929
+    },
+    {
+      "id": "n3590",
+      "t": "电灯胆",
+      "region": "hk",
+      "matched": "電燈膽 / 鄧麗欣",
+      "start": 25,
+      "bytes": 40929
+    },
+    {
+      "id": "n3603",
+      "t": "花开忘忧",
+      "region": "tw",
+      "matched": "花開忘憂 / 周深",
+      "start": 18,
+      "bytes": 40929
+    }
+  ],
+  "miss": [
+    {
+      "id": "n2851",
+      "t": "我和我的祖国",
+      "ar": "王菲"
+    }
+  ],
+  "fail": [],
+  "scope": "all",
+  "total": 534,
+  "bytes": 21740657
+}
